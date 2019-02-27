@@ -5,21 +5,32 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private float m_move_speed_;
+    [SerializeField] private float m_move_forward_speed_;
 
     private Vector3 m_move_vector_;
     private float m_start_time_;
-    private Vector3 m_distance_;
+
+    
+    public float Move_forward_speed_
+    {
+        get { return m_move_forward_speed_; }
+        set
+        {
+            if (value > 0)
+                m_move_forward_speed_ = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
         m_move_vector_ = Vector3.zero;
     }
-    
+
     // Update is called once per frame
     public void MoveLeft()
     {
-
-        transform.Translate(Vector3.Lerp(Vector3.left * transform.position.x, Vector3.left * m_move_speed_ * Time.deltaTime, 0.8f));
+        transform.Translate(Vector3.left * m_move_speed_ * Time.deltaTime);
     }
 
     public void MoveRight()
@@ -29,6 +40,12 @@ public class Move : MonoBehaviour
 
     public void ResetMove()
     {
-        transform.Translate(Vector3.Lerp(Vector3.left * transform.position.x, Vector3.left * m_move_speed_ * Time.deltaTime, 0.8f)
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, 0, 0.050f), transform.position.y, transform.position.z);
+        //transform.Translate(Vector3.Lerp(transform.position, new Vector3(0, transform.position.y, transform.position.z) * m_move_speed_ * Time.deltaTime, 1));
+    }
+
+    public void MoveForward()
+    {
+        transform.Translate(Vector3.forward * m_move_speed_ * Time.deltaTime);
     }
 }

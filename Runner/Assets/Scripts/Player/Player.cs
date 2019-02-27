@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
             m_move_.MoveRight();
         else
             m_move_.ResetMove();
+
+        m_move_.MoveForward();
     }
 
     private void OnKeyboardSpaceButtonPressedEventHandler()
