@@ -6,8 +6,7 @@ public class Move : MonoBehaviour
 {
     [SerializeField] private float m_move_speed_;
     [SerializeField] private float m_move_forward_speed_;
-
-    private Vector3 m_move_vector_;
+    
     private float m_start_time_;
 
     
@@ -24,7 +23,6 @@ public class Move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_move_vector_ = Vector3.zero;
     }
 
     // Update is called once per frame

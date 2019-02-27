@@ -9,7 +9,7 @@ public class Loader : MonoBehaviour
     [SerializeField] private GameObject m_inputManager;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (GameManager.m_instance == null)
             Instantiate(m_gameManager);

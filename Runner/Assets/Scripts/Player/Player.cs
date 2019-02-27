@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
     private Jump m_jump_;
@@ -11,9 +10,12 @@ public class Player : MonoBehaviour
 
     private bool m_move_left_pressed_;
     private bool m_move_right_pressed_;
+
     // Use this for initialization
     void Start()
     {
+        GameManager.m_instance.RegisterPlayer(this);
+
         m_jump_ = GetComponent<Jump>();
         m_move_ = GetComponent<Move>();
         m_move_left_pressed_ = false;

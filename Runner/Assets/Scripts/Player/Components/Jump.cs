@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody))]
 public class Jump : MonoBehaviour
 {
+    //public string[] m_tags = UnityEditorInternal.InternalEditorUtility.tags;
     [SerializeField] private float m_jump_power;
     [SerializeField] private bool m_only_on_platform;
     [SerializeField] private bool m_mass_as_gravity_;
@@ -14,6 +14,7 @@ public class Jump : MonoBehaviour
 
     private void Start()
     {
+        
         m_rigidbody_ = GetComponent<Rigidbody>();
     }
 
