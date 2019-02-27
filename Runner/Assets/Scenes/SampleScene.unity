@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4660551406904378, guid: 865dc733beb8f7440b5747f56ed7dbd5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -226,6 +231,56 @@ Prefab:
         type: 2}
       propertyPath: m_jump_power
       value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_only_on_platform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_only_on_gameobject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[0]
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[1]
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[2]
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[3]
+      value: EditorOnly
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[4]
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[5]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[6]
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204238427417200, guid: 865dc733beb8f7440b5747f56ed7dbd5,
+        type: 2}
+      propertyPath: m_tags.Array.data[7]
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 865dc733beb8f7440b5747f56ed7dbd5, type: 2}
@@ -272,6 +327,10 @@ Prefab:
     - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
       propertyPath: m_Name
       value: PlatformBasic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
@@ -474,6 +533,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1195238330261700, guid: cda70d2f6d68d254ab9cbe0c96ebde92, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cda70d2f6d68d254ab9cbe0c96ebde92, type: 2}
   m_IsPrefabParent: 0
@@ -520,6 +583,10 @@ Prefab:
     - target: {fileID: 4020892249434758, guid: f13c45563d092564d988294f8ef0647d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366428659234540, guid: f13c45563d092564d988294f8ef0647d, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f13c45563d092564d988294f8ef0647d, type: 2}
@@ -597,6 +664,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
   m_IsPrefabParent: 0
@@ -643,6 +714,10 @@ Prefab:
     - target: {fileID: 4523660022976322, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
@@ -829,6 +904,10 @@ Prefab:
       propertyPath: m_Name
       value: PlatformBasic
       objectReference: {fileID: 0}
+    - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
   m_IsPrefabParent: 0
@@ -962,6 +1041,10 @@ Prefab:
     - target: {fileID: 4523660022976322, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851260109435514, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14da5068e8b8cdc40b5dcb96a03e4180, type: 2}

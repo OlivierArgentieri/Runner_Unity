@@ -18,7 +18,7 @@ public class Jump : MonoBehaviour
     
     private void Start()
     {
-        
+        this.m_is_jumping_ = true;
         m_rigidbody_ = GetComponent<Rigidbody>();
     }
 

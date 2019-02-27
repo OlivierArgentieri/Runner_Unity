@@ -1,21 +1,19 @@
 ﻿using UnityEditor;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-[CustomEditor(typeof(Jump))][SerializeField]
-public class NewBehaviourScript : Editor
+public class Test : EditorWindow
 {
-    private int defautl_index;
-    public override void OnInspectorGUI()
+    [SerializeField] TreeViewState m_TreeViewState;
+    Test m_SimpleTreeView;
+
+    void OnEnable()
     {
-        base.OnInspectorGUI();
-        var m_tags = UnityEditorInternal.InternalEditorUtility.tags;
-        ((Jump)target).m_tags = m_tags;
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Tags");
-        
-        ((Jump)target).m_tag_index = EditorGUILayout.IntField(EditorGUILayout.Popup(((Jump)target).m_tag_index, m_tags));
+        // Check whether there is already a serialized view state (state 
+        // that survived assembly reloading)
+        if (m_TreeViewState == null)
+            m_TreeViewState = new TreeViewState();
 
-
-        GUILayout.EndHorizontal();
+   //     m_SimpleTreeView = new SimpleTreeView(m_TreeViewState);
     }
 }
