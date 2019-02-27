@@ -6,36 +6,58 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Jump m_jump_;
-
+    private Move m_move_;
     private bool m_is_jumping_;
+
+    private bool m_move_left_pressed_;
+    private bool m_move_right_pressed_;
     // Use this for initialization
     void Start()
     {
         m_jump_ = GetComponent<Jump>();
-        InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnOnKeyboardSpaceButtonPressed;
+        m_move_ = GetComponent<Move>();
+        m_move_left_pressed_ = false;
+        m_move_right_pressed_ = false;
+        InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveLeftButtonPressed += OnKeyboardMoveLeftButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveLeftButtonReleased += OnKeyboardMoveLeftButtonReleasedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveRightButtonPressed += OnKeyboardMoveRightButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (m_move_left_pressed_)
+            m_move_.MoveLeft();
+        else if (m_move_right_pressed_)
+            m_move_.MoveRight();
+        else
+            m_move_.ResetMove();
     }
 
-    private void OnOnKeyboardSpaceButtonPressed()
+    private void OnKeyboardSpaceButtonPressedEventHandler()
     {
-        if (!m_is_jumping_)
-            m_jump_.jump();
+        m_jump_.MakeJump();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnKeyboardMoveLeftButtonPressedEventHandler()
     {
-        if (collision.gameObject.tag == "Platform")
-            this.m_is_jumping_ = false;
+        m_move_left_pressed_ = true;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnKeyboardMoveRightButtonPressedEventHandler()
     {
-        if (collision.gameObject.tag == "Platform")
-            this.m_is_jumping_ = true;
+        m_move_right_pressed_ = true;
+    }
+
+    private void OnKeyboardMoveLeftButtonReleasedEventHandler()
+    {
+        m_move_left_pressed_ = false;
+    }
+
+    private void OnKeyboardMoveRightButtonReleasedEventHandler()
+    {
+        m_move_right_pressed_ = false;
     }
 }

@@ -27,9 +27,23 @@ public class InputManager : MonoBehaviour
     public delegate void KeyboardButtonEventHandler(float _fHorizontalValue, float _fVerticalValue);
     public event KeyboardButtonEventHandler OnKeyboardButtonPressed;
 
-    public delegate void RightArrowKeyboardButtonEventHandler();
-    public event RightArrowKeyboardButtonEventHandler OnKeyboardRightArrowButtonPressed;
+    // move left pressed
+    public delegate void MoveLeftKeyboardButtonPressedEventHandler();
+    public event MoveLeftKeyboardButtonPressedEventHandler OnKeyboardMoveLeftButtonPressed;
 
+    // move Right pressed
+    public delegate void MoveRigthKeyboardButtonPressedEventHandler();
+    public event MoveRigthKeyboardButtonPressedEventHandler OnKeyboardMoveRightButtonPressed;
+
+    // move left Released
+    public delegate void MoveLeftKeyboardButtonReleasedEventHandler();
+    public event MoveLeftKeyboardButtonReleasedEventHandler OnKeyboardMoveLeftButtonReleased;
+
+    // move Right Released
+    public delegate void MoveRigthKeyboardButtonReleasedEventHandler();
+    public event MoveRigthKeyboardButtonReleasedEventHandler OnKeyboardMoveRightButtonReleased;
+
+    // space bar
     public delegate void SpaceKeyboardButtonEventHandler();
     public event SpaceKeyboardButtonEventHandler OnKeyboardSpaceButtonPressed;
 
@@ -38,8 +52,10 @@ public class InputManager : MonoBehaviour
         TriggerMouseEventHandler();
         TriggerLeftMouseButtonEventHandler();
         TriggerRightMouseButtonEventHandler();
-        TriggerKeyboardButtonPressed();
-        TriggerKeyboardRightArrowButtonEventHandler();
+        TriggerKeyboardMoveLeftButtonPressed();
+        TriggerKeyboardMoveLeftButtonReleased();
+        TriggerKeyboardMoveRightButtonPressed();
+        TriggerKeyboardMoveRightButtonReleased();
         TriggerKeyboardSpaceButtonEventHandler();
     }
 
@@ -61,16 +77,28 @@ public class InputManager : MonoBehaviour
             OnClickRightMouseButton();
     }
 
-    public void TriggerKeyboardButtonPressed()
+    public void TriggerKeyboardMoveLeftButtonPressed()
     {
-        if (OnKeyboardButtonPressed != null)
-            OnKeyboardButtonPressed(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (OnKeyboardMoveLeftButtonPressed != null && Input.GetKeyDown(KeyCode.Q))
+            OnKeyboardMoveLeftButtonPressed();
     }
 
-    public void TriggerKeyboardRightArrowButtonEventHandler()
+    public void TriggerKeyboardMoveRightButtonPressed()
     {
-        if (OnKeyboardRightArrowButtonPressed != null && Input.GetKeyDown(KeyCode.RightArrow))
-            OnKeyboardRightArrowButtonPressed();
+        if (OnKeyboardMoveRightButtonPressed != null && Input.GetKeyDown(KeyCode.D))
+            OnKeyboardMoveRightButtonPressed();
+    }
+
+    public void TriggerKeyboardMoveLeftButtonReleased()
+    {
+        if (OnKeyboardMoveLeftButtonReleased != null && Input.GetKeyUp(KeyCode.Q))
+            OnKeyboardMoveLeftButtonReleased();
+    }
+
+    public void TriggerKeyboardMoveRightButtonReleased()
+    {
+        if (OnKeyboardMoveRightButtonReleased != null && Input.GetKeyUp(KeyCode.D))
+            OnKeyboardMoveRightButtonReleased();
     }
 
     public void TriggerKeyboardSpaceButtonEventHandler()
