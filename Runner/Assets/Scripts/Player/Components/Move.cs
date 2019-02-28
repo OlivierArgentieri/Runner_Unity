@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
 
     public void MoveRight()
     {
-        transform.Translate(Vector3.Lerp(transform.position, -Vector3.left * m_move_speed_ * Time.deltaTime, 1));
+        transform.Translate(-Vector3.left * m_move_speed_ * Time.deltaTime);
     }
 
     public void ResetMove()

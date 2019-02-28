@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
         GameManager.m_instance.RegisterPlayer(this);
 
         m_jump_ = GetComponent<Jump>();
+
         m_move_ = GetComponent<Move>();
         m_move_left_pressed_ = false;
         m_move_right_pressed_ = false;
@@ -63,5 +64,14 @@ public class Player : MonoBehaviour
     private void OnKeyboardMoveRightButtonReleasedEventHandler()
     {
         m_move_right_pressed_ = false;
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveLeftButtonPressed -= OnKeyboardMoveLeftButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveLeftButtonReleased -= OnKeyboardMoveLeftButtonReleasedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveRightButtonPressed -= OnKeyboardMoveRightButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
     }
 }

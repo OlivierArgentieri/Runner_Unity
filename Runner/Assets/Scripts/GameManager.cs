@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager m_instance;
-
     private Player m_player_instance_;
     private Move m_move_instance_;
     private Text m_meter_label_instance_;
@@ -50,5 +50,10 @@ public class GameManager : MonoBehaviour
     private void DisplayMeter(float _fMeter)
     {
         m_meter_label_instance_.text = string.Format("{0} m", Mathf.Floor (_fMeter));
+    }
+
+    public void SwitchScene(string _sCurrentSceneName, string _sNextSceneName)
+    {
+        SceneManager.LoadScene(_sNextSceneName);
     }
 }

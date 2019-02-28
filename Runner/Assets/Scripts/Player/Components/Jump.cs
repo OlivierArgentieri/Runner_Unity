@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody))]
 public class Jump : MonoBehaviour
 {
@@ -19,21 +20,29 @@ public class Jump : MonoBehaviour
     private void Start()
     {
         this.m_is_jumping_ = true;
-        m_rigidbody_ = GetComponent<Rigidbody>();
+
+        this.m_rigidbody_ = GetComponent<Rigidbody>();
+        Debug.Log(m_rigidbody_, gameObject);
     }
 
     public void MakeJump()
     {
-        if (m_only_on_gameobject && !m_is_jumping_)
+        Debug.Log(m_rigidbody_, gameObject);
+        if (m_rigidbody_ != null && m_only_on_gameobject && !m_is_jumping_)
             m_rigidbody_.AddForce(Vector3.up * m_jump_power);
 
-        if (!m_only_on_gameobject)
+        if (m_rigidbody_ != null  && !m_only_on_gameobject)
             m_rigidbody_.AddForce(Vector3.up * m_jump_power);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag =="Platform")
+            this.m_is_jumping_ = false;
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
             this.m_is_jumping_ = false;
     }
 
@@ -47,5 +56,10 @@ public class Jump : MonoBehaviour
     {
         if (m_mass_as_gravity_)
             m_rigidbody_.AddForce(Physics.gravity * m_rigidbody_.mass);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("destroyed");
     }
 }
