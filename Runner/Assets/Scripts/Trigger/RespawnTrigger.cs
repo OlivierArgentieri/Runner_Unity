@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respasn : MonoBehaviour
+public class RespawnTrigger : MonoBehaviour
 {
 
     // Use this for initialization
