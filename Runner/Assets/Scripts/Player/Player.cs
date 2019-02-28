@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private bool m_move_left_pressed_;
     private bool m_move_right_pressed_;
-
+    private bool m_ready_;
     // Use this for initialization
     void Start()
     {
@@ -38,7 +38,8 @@ public class Player : MonoBehaviour
         else
             m_move_.ResetMove();
 
-        m_move_.MoveForward();
+        if (m_ready_)
+            m_move_.MoveForward();
     }
 
     private void OnKeyboardSpaceButtonPressedEventHandler()
@@ -73,5 +74,11 @@ public class Player : MonoBehaviour
         InputManager.m_instance.OnKeyboardMoveLeftButtonReleased -= OnKeyboardMoveLeftButtonReleasedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonPressed -= OnKeyboardMoveRightButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+            m_ready_ = true;
     }
 }
