@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndLevelTrigger : MonoBehaviour
 {
-
+    [SerializeField] private string m_name_next_scene;
     // Use this for initialization
     void Start()
     {
@@ -19,6 +19,6 @@ public class EndLevelTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            GameManager.m_instance.SwitchScene("SampleScene", "Level");
+            GameManager.m_instance.SwitchScene(m_name_next_scene);
     }
 }

@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         m_meter_label_instance_.text = string.Format("{0} m", Mathf.Floor (_fMeter));
     }
 
-    public void SwitchScene(string _sCurrentSceneName, string _sNextSceneName)
+    public void SwitchScene(string _sNextSceneName)
     {
         SceneManager.LoadScene(_sNextSceneName);
     }
