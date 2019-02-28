@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     private Jump m_jump_;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         GameManager.m_instance.RegisterPlayer(this);
 
         m_jump_ = GetComponent<Jump>();
@@ -57,6 +59,9 @@ public class Player : MonoBehaviour
         m_move_right_pressed_ = true;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnKeyboardMoveLeftButtonReleasedEventHandler()
     {
         m_move_left_pressed_ = false;
@@ -76,6 +81,10 @@ public class Player : MonoBehaviour
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Platform")
