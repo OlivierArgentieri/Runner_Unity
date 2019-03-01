@@ -25,7 +25,6 @@ public class MoveForwardPlatform : MonoBehaviour
 
         else
             transform.position += Vector3.forward * Time.deltaTime * _fSpeed;
-
     }
 
     private void OnCollisionEnter(Collision collision)
