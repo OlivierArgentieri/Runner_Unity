@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayMeter((Time.time - m_start_time_) * m_move_instance_.Move_forward_speed_);
+        DisplayMeter((Time.time - m_start_time_));
     }
 
     public void RegisterTextMeterLabel(Text _tMeterLabelInstance)
