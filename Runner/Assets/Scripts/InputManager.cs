@@ -30,6 +30,23 @@ public class InputManager : MonoBehaviour
     public delegate void KeyboardButtonEventHandler(float _fHorizontalValue, float _fVerticalValue);
     public event KeyboardButtonEventHandler OnKeyboardButtonPressed;
 
+    // move forward pressed
+    public delegate void MoveForwardKeyboardButtonPressedEventHandler();
+    public event MoveForwardKeyboardButtonPressedEventHandler OnKeyboardMoveForwardButtonPressed;
+
+    // move backward pressed
+    public delegate void MoveBackwardKeyboardButtonPressedEventHandler();
+    public event MoveBackwardKeyboardButtonPressedEventHandler OnKeyboardMoveBackwardButtonPressed;
+
+    // move forward Released 
+    public delegate void MoveForwardKeyboardButtonReleasedEventHandler();
+    public event MoveForwardKeyboardButtonReleasedEventHandler OnKeyboardMoveForwardButtonReleased;
+
+    // move backward Released
+    public delegate void MoveBackwardKeyboardButtonReleasedEventHandler();
+    public event MoveBackwardKeyboardButtonReleasedEventHandler OnKeyboardMoveBackwardButtonReleased;
+
+
     // move left pressed
     public delegate void MoveLeftKeyboardButtonPressedEventHandler();
     public event MoveLeftKeyboardButtonPressedEventHandler OnKeyboardMoveLeftButtonPressed;
@@ -55,10 +72,17 @@ public class InputManager : MonoBehaviour
         TriggerMouseEventHandler();
         TriggerLeftMouseButtonEventHandler();
         TriggerRightMouseButtonEventHandler();
+
+        TriggerKeyboardMoveForwardButtonPressed();
+        TriggerKeyboardMoveBackwardButtonPressed();
+        TriggerKeyboardMoveForwardButtonReleased();
+        TriggerKeyboardMoveBackwardButtonReleased();
+
         TriggerKeyboardMoveLeftButtonPressed();
         TriggerKeyboardMoveLeftButtonReleased();
         TriggerKeyboardMoveRightButtonPressed();
         TriggerKeyboardMoveRightButtonReleased();
+
         TriggerKeyboardSpaceButtonEventHandler();
     }
 
@@ -78,6 +102,30 @@ public class InputManager : MonoBehaviour
     {
         if (OnClickRightMouseButton != null && Input.GetKeyDown(KeyCode.Mouse1))
             OnClickRightMouseButton();
+    }
+
+    public void TriggerKeyboardMoveForwardButtonPressed()
+    {
+        if (OnKeyboardMoveForwardButtonPressed != null && Input.GetKeyDown(KeyCode.Z))
+            OnKeyboardMoveForwardButtonPressed();
+    }
+
+    public void TriggerKeyboardMoveBackwardButtonPressed()
+    {
+        if (OnKeyboardMoveBackwardButtonPressed  != null && Input.GetKeyDown(KeyCode.S))
+            OnKeyboardMoveBackwardButtonPressed();
+    }
+
+    public void TriggerKeyboardMoveForwardButtonReleased()
+    {
+        if (OnKeyboardMoveForwardButtonReleased != null && Input.GetKeyUp(KeyCode.Z))
+            OnKeyboardMoveForwardButtonReleased();
+    }
+
+    public void TriggerKeyboardMoveBackwardButtonReleased()
+    {
+        if (OnKeyboardMoveBackwardButtonReleased != null && Input.GetKeyUp(KeyCode.S))
+            OnKeyboardMoveBackwardButtonReleased();
     }
 
     public void TriggerKeyboardMoveLeftButtonPressed()

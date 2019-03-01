@@ -46,4 +46,8 @@ public class Move : MonoBehaviour
     {
         transform.Translate(Vector3.forward * m_move_forward_speed_ * Time.deltaTime);
     }
+    public void MoveBackward()
+    {
+        transform.Translate(-(Vector3.forward * m_move_forward_speed_ * Time.deltaTime));
+    }
 }

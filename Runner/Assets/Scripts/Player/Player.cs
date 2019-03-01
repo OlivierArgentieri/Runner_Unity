@@ -9,44 +9,71 @@ public class Player : MonoBehaviour
     private Move m_move_;
     private bool m_is_jumping_;
 
+    private bool m_move_forward_pressed_;
+    private bool m_move_backward_pressed_;
     private bool m_move_left_pressed_;
     private bool m_move_right_pressed_;
-    private bool m_ready_;
     // Use this for initialization
     void Start()
     {
-        
         GameManager.m_instance.RegisterPlayer(this);
 
         m_jump_ = GetComponent<Jump>();
 
         m_move_ = GetComponent<Move>();
+        m_move_forward_pressed_ = false;
+        m_move_backward_pressed_ = false;
         m_move_left_pressed_ = false;
         m_move_right_pressed_ = false;
-        InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
+
+        InputManager.m_instance.OnKeyboardMoveForwardButtonPressed += OnKeyboardMoveForwardButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveBackwardButtonPressed += OnKeyboardMoveBackwardButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveForwardButtonReleased += OnKeyboardMoveForwardButtonReleasedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveBackwardButtonReleased += OnKeyboardMoveBackwardButtonReleasedEventHandler;
+
         InputManager.m_instance.OnKeyboardMoveLeftButtonPressed += OnKeyboardMoveLeftButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardMoveLeftButtonReleased += OnKeyboardMoveLeftButtonReleasedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonPressed += OnKeyboardMoveRightButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
+
+        InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (m_move_forward_pressed_)
+            m_move_.MoveForward();
+
+        if (m_move_backward_pressed_)
+            m_move_.MoveBackward();
+
         if (m_move_left_pressed_)
             m_move_.MoveLeft();
-        else if (m_move_right_pressed_)
+        if (m_move_right_pressed_)
             m_move_.MoveRight();
-        else
-            m_move_.ResetMove();
-
-        if (m_ready_)
-            m_move_.MoveForward();
+      //  else
+       //     m_move_.ResetMove();
     }
 
-    private void OnKeyboardSpaceButtonPressedEventHandler()
+    public void OnKeyboardMoveForwardButtonPressedEventHandler()
     {
-        m_jump_.MakeJump();
+        m_move_forward_pressed_ = true;
+    }
+
+    public void OnKeyboardMoveBackwardButtonPressedEventHandler()
+    {
+        m_move_backward_pressed_ = true;
+    }
+
+    public void OnKeyboardMoveForwardButtonReleasedEventHandler()
+    {
+        m_move_forward_pressed_ = false;
+    }
+
+    public void OnKeyboardMoveBackwardButtonReleasedEventHandler()
+    {
+        m_move_backward_pressed_ = false;
     }
 
     private void OnKeyboardMoveLeftButtonPressedEventHandler()
@@ -59,9 +86,6 @@ public class Player : MonoBehaviour
         m_move_right_pressed_ = true;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     private void OnKeyboardMoveLeftButtonReleasedEventHandler()
     {
         m_move_left_pressed_ = false;
@@ -72,22 +96,24 @@ public class Player : MonoBehaviour
         m_move_right_pressed_ = false;
     }
 
+    private void OnKeyboardSpaceButtonPressedEventHandler()
+    {
+        m_jump_.MakeJump();
+    }
+
     private void OnDestroy()
     {
-        InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveForwardButtonPressed -= OnKeyboardMoveForwardButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveBackwardButtonPressed -= OnKeyboardMoveBackwardButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveForwardButtonReleased -= OnKeyboardMoveForwardButtonReleasedEventHandler;
+        InputManager.m_instance.OnKeyboardMoveBackwardButtonReleased -= OnKeyboardMoveBackwardButtonReleasedEventHandler;
+
         InputManager.m_instance.OnKeyboardMoveLeftButtonPressed -= OnKeyboardMoveLeftButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardMoveLeftButtonReleased -= OnKeyboardMoveLeftButtonReleasedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonPressed -= OnKeyboardMoveRightButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
-    }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Platform")
-            m_ready_ = true;
+        InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
     }
+    
 }
