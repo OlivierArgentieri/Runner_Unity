@@ -13,10 +13,16 @@ public class InputManager : MonoBehaviour
             m_instance = this;
 
         if (m_instance != this)
+        {
             Destroy(gameObject);
-
+            return;
+        }
         DontDestroyOnLoad(this.gameObject);
+
+        StartCoroutine("TriggerInput");
     }
+
+    private IEnumerator m_coroutine_;
 
     public delegate void MouseEventHandler(float _fxValue, float _fyValue, float _fWheelValue);
     public event MouseEventHandler OnMouse;
@@ -46,7 +52,6 @@ public class InputManager : MonoBehaviour
     public delegate void MoveBackwardKeyboardButtonReleasedEventHandler();
     public event MoveBackwardKeyboardButtonReleasedEventHandler OnKeyboardMoveBackwardButtonReleased;
 
-
     // move left pressed
     public delegate void MoveLeftKeyboardButtonPressedEventHandler();
     public event MoveLeftKeyboardButtonPressedEventHandler OnKeyboardMoveLeftButtonPressed;
@@ -66,24 +71,29 @@ public class InputManager : MonoBehaviour
     // space bar
     public delegate void SpaceKeyboardButtonEventHandler();
     public event SpaceKeyboardButtonEventHandler OnKeyboardSpaceButtonPressed;
+    
 
-    private void Update()
+    private IEnumerator TriggerInput()
     {
-        TriggerMouseEventHandler();
-        TriggerLeftMouseButtonEventHandler();
-        TriggerRightMouseButtonEventHandler();
+        while(true)
+        { 
+            TriggerMouseEventHandler();
+            TriggerLeftMouseButtonEventHandler();
+            TriggerRightMouseButtonEventHandler();
 
-        TriggerKeyboardMoveForwardButtonPressed();
-        TriggerKeyboardMoveBackwardButtonPressed();
-        TriggerKeyboardMoveForwardButtonReleased();
-        TriggerKeyboardMoveBackwardButtonReleased();
+            TriggerKeyboardMoveForwardButtonPressed();
+            TriggerKeyboardMoveBackwardButtonPressed();
+            TriggerKeyboardMoveForwardButtonReleased();
+            TriggerKeyboardMoveBackwardButtonReleased();
 
-        TriggerKeyboardMoveLeftButtonPressed();
-        TriggerKeyboardMoveLeftButtonReleased();
-        TriggerKeyboardMoveRightButtonPressed();
-        TriggerKeyboardMoveRightButtonReleased();
+            TriggerKeyboardMoveLeftButtonPressed();
+            TriggerKeyboardMoveLeftButtonReleased();
+            TriggerKeyboardMoveRightButtonPressed();
+            TriggerKeyboardMoveRightButtonReleased();
 
-        TriggerKeyboardSpaceButtonEventHandler();
+            TriggerKeyboardSpaceButtonEventHandler();
+            yield return null;
+        }
     }
 
     public void TriggerMouseEventHandler()
