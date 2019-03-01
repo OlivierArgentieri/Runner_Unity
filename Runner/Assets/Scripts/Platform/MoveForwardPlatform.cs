@@ -30,10 +30,10 @@ public class MoveForwardPlatform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if (collision.gameObject.tag != "Player")
             m_reversed_ = !m_reversed_;
-
+        else
+            collision.gameObject.transform.parent = transform;
         Debug.Log("test");
     }
 }
