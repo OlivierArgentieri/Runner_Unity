@@ -22,7 +22,6 @@ public class Jump : MonoBehaviour
         this.m_is_jumping_ = true;
 
         this.m_rigidbody_ = GetComponent<Rigidbody>();
-        Debug.Log(m_rigidbody_, gameObject);
     }
 
     public void MakeJump()
@@ -57,9 +56,5 @@ public class Jump : MonoBehaviour
         if (m_mass_as_gravity_)
             m_rigidbody_.AddForce(Physics.gravity * m_rigidbody_.mass);
     }
-
-    private void OnDestroy()
-    {
-        Debug.Log("destroyed");
-    }
+    
 }

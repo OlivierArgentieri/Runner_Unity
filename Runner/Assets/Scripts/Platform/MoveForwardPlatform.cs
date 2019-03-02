@@ -33,6 +33,5 @@ public class MoveForwardPlatform : MonoBehaviour
             m_reversed_ = !m_reversed_;
         else
             collision.gameObject.transform.parent = transform;
-        Debug.Log("test");
     }
 }

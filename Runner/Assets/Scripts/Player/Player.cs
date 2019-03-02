@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
+using UnityEngine.Analytics;
 
 public class Player : MonoBehaviour
 {
@@ -104,7 +105,14 @@ public class Player : MonoBehaviour
 
     private void OnKeyboardActivateButtonPressedEventHandler()
     {
-       
+        RaycastHit hit;
+        Ray Ray = new Ray(transform.position, Vector3.forward);
+        var button = Physics.SphereCastAll(Ray, 0.3f).FirstOrDefault( o=> o.collider.tag == "Button");
+
+        if (!button.Equals(default(RaycastHit)))
+        {
+            Debug.Log("OK");
+        }
     }
 
     private void OnDestroy()
