@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
 
         if (!button.Equals(default(RaycastHit)))
         {
-            Debug.Log("OK");
+            button.collider.gameObject.GetComponent<ButtonActivable>().Activate();
         }
     }
 

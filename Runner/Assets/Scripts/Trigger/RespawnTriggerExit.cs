@@ -19,6 +19,6 @@ public class RespawnTriggerExit : MonoBehaviour {
         if (other.tag == "Player")
             GameManager.m_instance.RestartLevel();
         else
-            Destroy(other);
+            Destroy(other.gameObject);
     }
 }

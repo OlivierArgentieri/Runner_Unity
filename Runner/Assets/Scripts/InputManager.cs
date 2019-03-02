@@ -127,7 +127,7 @@ public class InputManager : MonoBehaviour
 
     public void TriggerKeyboardMoveForwardButtonPressed()
     {
-        if (OnKeyboardMoveForwardButtonPressed != null && Input.GetKeyDown(KeyCode.Z))
+        if (OnKeyboardMoveForwardButtonPressed != null && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W)))
             OnKeyboardMoveForwardButtonPressed();
     }
 
@@ -139,7 +139,7 @@ public class InputManager : MonoBehaviour
 
     public void TriggerKeyboardMoveForwardButtonReleased()
     {
-        if (OnKeyboardMoveForwardButtonReleased != null && Input.GetKeyUp(KeyCode.Z))
+        if (OnKeyboardMoveForwardButtonReleased != null && (Input.GetKeyUp(KeyCode.Z) ||Input.GetKeyUp(KeyCode.W)))
             OnKeyboardMoveForwardButtonReleased();
     }
 
@@ -151,7 +151,7 @@ public class InputManager : MonoBehaviour
 
     public void TriggerKeyboardMoveLeftButtonPressed()
     {
-        if (OnKeyboardMoveLeftButtonPressed != null && Input.GetKeyDown(KeyCode.Q))
+        if (OnKeyboardMoveLeftButtonPressed != null && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)))
             OnKeyboardMoveLeftButtonPressed();
     }
 
@@ -163,7 +163,7 @@ public class InputManager : MonoBehaviour
 
     public void TriggerKeyboardMoveLeftButtonReleased()
     {
-        if (OnKeyboardMoveLeftButtonReleased != null && Input.GetKeyUp(KeyCode.Q))
+        if (OnKeyboardMoveLeftButtonReleased != null && (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.A)))
             OnKeyboardMoveLeftButtonReleased();
     }
 
