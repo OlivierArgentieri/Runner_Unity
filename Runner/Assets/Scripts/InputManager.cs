@@ -57,21 +57,29 @@ public class InputManager : MonoBehaviour
     public event MoveLeftKeyboardButtonPressedEventHandler OnKeyboardMoveLeftButtonPressed;
 
     // move Right pressed
-    public delegate void MoveRigthKeyboardButtonPressedEventHandler();
-    public event MoveRigthKeyboardButtonPressedEventHandler OnKeyboardMoveRightButtonPressed;
+    public delegate void MoveRightKeyboardButtonPressedEventHandler();
+    public event MoveRightKeyboardButtonPressedEventHandler OnKeyboardMoveRightButtonPressed;
 
     // move left Released
     public delegate void MoveLeftKeyboardButtonReleasedEventHandler();
     public event MoveLeftKeyboardButtonReleasedEventHandler OnKeyboardMoveLeftButtonReleased;
 
     // move Right Released
-    public delegate void MoveRigthKeyboardButtonReleasedEventHandler();
-    public event MoveRigthKeyboardButtonReleasedEventHandler OnKeyboardMoveRightButtonReleased;
+    public delegate void MoveRightKeyboardButtonReleasedEventHandler();
+    public event MoveRightKeyboardButtonReleasedEventHandler OnKeyboardMoveRightButtonReleased;
 
     // space bar
-    public delegate void SpaceKeyboardButtonEventHandler();
-    public event SpaceKeyboardButtonEventHandler OnKeyboardSpaceButtonPressed;
-    
+    public delegate void SpaceKeyboardButtonPressedEventHandler();
+    public event SpaceKeyboardButtonPressedEventHandler OnKeyboardSpaceButtonPressed;
+
+    // E pressed
+    public delegate void KeyboardActivateButtonPressedEventHandler();
+    public event KeyboardActivateButtonPressedEventHandler OnKeyboardActivateButtonPressed;
+
+    // E released
+    public delegate void KeyboardActivateButtonReleasedEventHandler();
+    public event KeyboardActivateButtonReleasedEventHandler OnKeyboardActivateButtonReleased;
+
 
     private IEnumerator TriggerInput()
     {
@@ -91,8 +99,11 @@ public class InputManager : MonoBehaviour
             TriggerKeyboardMoveRightButtonPressed();
             TriggerKeyboardMoveRightButtonReleased();
 
-            TriggerKeyboardSpaceButtonEventHandler();
-            yield return null;
+            TriggerKeyboardSpaceButtonPressedEventHandler();
+
+            TriggerKeyboardActivateButtonPressedEventHandler();
+            TriggerKeyboardActivateButtonReleasedEventHandler();
+             yield return null;
         }
     }
 
@@ -162,9 +173,21 @@ public class InputManager : MonoBehaviour
             OnKeyboardMoveRightButtonReleased();
     }
 
-    public void TriggerKeyboardSpaceButtonEventHandler()
+    public void TriggerKeyboardSpaceButtonPressedEventHandler()
     {
         if (OnKeyboardSpaceButtonPressed != null && Input.GetKeyDown(KeyCode.Space))
             OnKeyboardSpaceButtonPressed();
+    }
+
+    public void TriggerKeyboardActivateButtonPressedEventHandler()
+    {
+        if (OnKeyboardActivateButtonPressed != null && Input.GetKeyDown(KeyCode.E))
+            OnKeyboardActivateButtonPressed();
+    }
+
+    public void TriggerKeyboardActivateButtonReleasedEventHandler()
+    {
+        if (OnKeyboardActivateButtonReleased != null && Input.GetKeyUp(KeyCode.E))
+            OnKeyboardActivateButtonReleased();
     }
 }

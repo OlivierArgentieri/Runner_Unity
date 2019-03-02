@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
 
         InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardActivateButtonPressed += OnKeyboardActivateButtonPressedEventHandler;
     }
 
     // Update is called once per frame
@@ -101,6 +102,11 @@ public class Player : MonoBehaviour
         m_jump_.MakeJump();
     }
 
+    private void OnKeyboardActivateButtonPressedEventHandler()
+    {
+       
+    }
+
     private void OnDestroy()
     {
         InputManager.m_instance.OnKeyboardMoveForwardButtonPressed -= OnKeyboardMoveForwardButtonPressedEventHandler;
@@ -114,6 +120,8 @@ public class Player : MonoBehaviour
         InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
 
         InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.m_instance.OnKeyboardActivateButtonPressed -= OnKeyboardActivateButtonPressedEventHandler;
+
     }
-    
+
 }

@@ -1761,6 +1761,10 @@ Prefab:
       propertyPath: m_Name
       value: PatformTiny (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4776025140837594, guid: cda70d2f6d68d254ab9cbe0c96ebde92, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 3.6492572
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cda70d2f6d68d254ab9cbe0c96ebde92, type: 2}
   m_IsPrefabParent: 0
