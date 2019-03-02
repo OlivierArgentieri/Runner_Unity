@@ -2123,6 +2123,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_ready_material: {fileID: 2100000, guid: c98fa1e8844b5a64b93ef071b93069b3, type: 2}
+  m_used_material: {fileID: 2100000, guid: 53b19150d40a55e4ebac7afaeb015938, type: 2}
+  m_cooldown: 3
 --- !u!114 &1990583571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefabs: {fileID: 1558630619021890, guid: 48b9fb45ba5f90b4c85ac729fa4990de, type: 2}
-  m_spawn_prefabs: {x: 0, y: 0, z: 125}
+  m_spawn_prefabs: {x: 0, y: 0, z: 129}
 --- !u!1001 &2021758270
 Prefab:
   m_ObjectHideFlags: 0
