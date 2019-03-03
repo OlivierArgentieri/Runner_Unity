@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlatformFall : MonoBehaviour
 {
 
+
     private bool m_falling_;
-    private float m_speed_fall_;
+    [SerializeField] private float m_speed_fall_ = 0.5f;
     private void Awake()
     {
-        m_speed_fall_ = 0;
         m_falling_ = false;
     }
 
@@ -19,7 +19,7 @@ public class PlatformFall : MonoBehaviour
 
         if(m_falling_)
         {
-            Fall(0.5f);
+            Fall(m_speed_fall_);
             Debug.Log("test");
         }
     }

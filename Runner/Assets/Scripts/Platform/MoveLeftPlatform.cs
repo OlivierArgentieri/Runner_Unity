@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForwardPlatform : MonoBehaviour
+public class MoveLeftPlatform : MonoBehaviour
 {
     [SerializeField] private float m_speed;
     private bool m_reversed_;
@@ -21,10 +21,10 @@ public class MoveForwardPlatform : MonoBehaviour
     private void Move(float _fSpeed)
     {
         if (m_reversed_)
-            transform.position += -Vector3.forward * Time.deltaTime * _fSpeed;
+            transform.position += -Vector3.left * Time.deltaTime * _fSpeed;
 
         else
-            transform.position += Vector3.forward * Time.deltaTime * _fSpeed;
+            transform.position += Vector3.left * Time.deltaTime * _fSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
