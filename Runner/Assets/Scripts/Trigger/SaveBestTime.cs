@@ -20,4 +20,10 @@ public class SaveBestTime : MonoBehaviour
         if (GameManager.m_instance.GetCurrentTime() > SaveManager.m_instance.GetSavedTime())
             SaveManager.m_instance.SaveTime(GameManager.m_instance.GetCurrentTime());
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+            SaveTime();
+    }
 }

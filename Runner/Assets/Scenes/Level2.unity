@@ -881,7 +881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632404168}
   m_Layer: 0
-  m_Name: Map (1)
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1398,7 +1398,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1239359992126892, guid: 865dc733beb8f7440b5747f56ed7dbd5, type: 2}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 865dc733beb8f7440b5747f56ed7dbd5, type: 2}
@@ -2828,6 +2828,7 @@ MonoBehaviour:
     type: 2}
   m_inputManager: {fileID: 1678844013159436, guid: 0ca4f61bf9339ce478b973986f2ccbbb,
     type: 2}
+  m_saveManager: {fileID: 0}
 --- !u!81 &2026467533
 AudioListener:
   m_ObjectHideFlags: 0

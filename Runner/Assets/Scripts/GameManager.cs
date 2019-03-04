@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         m_current_time_ = Time.time - m_start_time_;
-        DisplayTime(m_current_time_);
+        DisplayTime(Time.time);
     }
 
     public void RegisterTextMeterLabel(Text _tMeterLabelInstance)
@@ -49,9 +49,9 @@ public class GameManager : MonoBehaviour
         m_move_instance_ = _pPlayerInstance.GetComponent<Move>();
     }
 
-    private void DisplayTime(float _fMeter)
+    private void DisplayTime(float _fTime)
     {
-        m_current_time_label_instance_.text = string.Format("Current time : {0} s", Mathf.Floor (_fMeter));
+        m_current_time_label_instance_.text = string.Format("time : {0} s", _fTime.ToString("0.0"));
     }
 
     public void SwitchScene(string _sNextSceneName)
