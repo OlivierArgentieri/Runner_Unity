@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class RespawnTriggerEnter : MonoBehaviour
+using UnityEngine.Events;
+public class OnTrigger : MonoBehaviour
 {
-
+    [SerializeField] private UnityEvent m_events;
     // Use this for initialization
     void Start()
     {
@@ -15,5 +15,10 @@ public class RespawnTriggerEnter : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        m_events.Invoke();
     }
 }
