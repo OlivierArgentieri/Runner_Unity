@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager m_instance;
     private Player m_player_instance_;
     private Move m_move_instance_;
-    private Text m_meter_label_instance_;
+    private Text m_current_time_label_instance_;
     private float m_start_time_;
+    private float m_current_time_;
 
     private void Awake()
     {
@@ -33,12 +34,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayMeter((Time.time - m_start_time_));
+        m_current_time_ = Time.time - m_start_time_;
+        DisplayTime(m_current_time_);
     }
 
     public void RegisterTextMeterLabel(Text _tMeterLabelInstance)
     {
-        this.m_meter_label_instance_ = _tMeterLabelInstance;
+        this.m_current_time_label_instance_ = _tMeterLabelInstance;
     }
 
     public void RegisterPlayer(Player _pPlayerInstance)
@@ -47,9 +49,9 @@ public class GameManager : MonoBehaviour
         m_move_instance_ = _pPlayerInstance.GetComponent<Move>();
     }
 
-    private void DisplayMeter(float _fMeter)
+    private void DisplayTime(float _fMeter)
     {
-        m_meter_label_instance_.text = string.Format("{0} m", Mathf.Floor (_fMeter));
+        m_current_time_label_instance_.text = string.Format("Current time : {0} s", Mathf.Floor (_fMeter));
     }
 
     public void SwitchScene(string _sNextSceneName)
@@ -60,5 +62,10 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public float GetCurrentTime()
+    {
+        return m_current_time_;
     }
 }

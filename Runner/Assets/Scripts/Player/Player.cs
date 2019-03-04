@@ -129,7 +129,5 @@ public class Player : MonoBehaviour
 
         InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardActivateButtonPressed -= OnKeyboardActivateButtonPressedEventHandler;
-
     }
-
 }
