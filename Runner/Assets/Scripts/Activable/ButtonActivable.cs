@@ -10,7 +10,7 @@ public class ButtonActivable : MonoBehaviour
     [SerializeField] private Material m_used_material;
 
     [SerializeField] private float m_cooldown;
-
+    [SerializeField] private bool m_do_once;
     private bool m_used_;
     private float m_time_count_;
 
@@ -27,7 +27,7 @@ public class ButtonActivable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > m_time_count_)
+        if (!m_do_once && Time.time > m_time_count_)
         {
             ResetButton();
         }

@@ -55,9 +55,10 @@ GameObject:
   - component: {fileID: 33317567787492766}
   - component: {fileID: 23648729532430072}
   - component: {fileID: 65142365851576126}
+  - component: {fileID: 114503552198969120}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,8 +70,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982494682321692}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.878, y: 0.759, z: 124.683}
-  m_LocalScale: {x: 0.05, y: 0.03, z: 0.05}
+  m_LocalPosition: {x: -0.004798889, y: 0.44769812, z: -0.06100464}
+  m_LocalScale: {x: 0.05000012, y: 0.03, z: 0.05000012}
   m_Children: []
   m_Father: {fileID: 4682585815360136}
   m_RootOrder: 1
@@ -81,8 +82,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1204129962659138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8670006, y: 0.6140003, z: 0.6800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4992021552669994}
@@ -96,9 +97,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670598045199234}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.872, y: 0.382, z: 124.748}
-  m_LocalScale: {x: 0.107467934, y: 1, z: 0.14429158}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.010795593, y: 0.07069826, z: 0.0039978027}
+  m_LocalScale: {x: 0.10746817, y: 1, z: 0.14429182}
   m_Children: []
   m_Father: {fileID: 4682585815360136}
   m_RootOrder: 0
@@ -211,3 +212,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114503552198969120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982494682321692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c51f286cd32524cafe70d54058e822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_on_activate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_ready_material: {fileID: 2100000, guid: c98fa1e8844b5a64b93ef071b93069b3, type: 2}
+  m_used_material: {fileID: 2100000, guid: 53b19150d40a55e4ebac7afaeb015938, type: 2}
+  m_cooldown: 0
+  m_do_once: 1

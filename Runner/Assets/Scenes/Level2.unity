@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2243,7 +2243,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4682585815360136, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.789
       objectReference: {fileID: 0}
     - target: {fileID: 4682585815360136, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2251,7 +2251,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4682585815360136, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 124.613
       objectReference: {fileID: 0}
     - target: {fileID: 4682585815360136, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2289,7 +2289,12 @@ Prefab:
       propertyPath: m_TagString
       value: Button
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4195692380142056, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.792
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114503552198969120, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a59c9f3bd50bed145b503466abc86a86, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1647079281
@@ -2707,6 +2712,7 @@ MonoBehaviour:
   m_ready_material: {fileID: 2100000, guid: c98fa1e8844b5a64b93ef071b93069b3, type: 2}
   m_used_material: {fileID: 2100000, guid: 53b19150d40a55e4ebac7afaeb015938, type: 2}
   m_cooldown: 3
+  m_do_once: 0
 --- !u!114 &1990583571
 MonoBehaviour:
   m_ObjectHideFlags: 0
