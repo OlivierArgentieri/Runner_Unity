@@ -1072,20 +1072,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4422249122436220, guid: 3db0c417988181346aff5204366dd5d3, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 23391074709089282, guid: 3db0c417988181346aff5204366dd5d3,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e1f902cf4e5a0874598d4d03c79202b3, type: 2}
-    - target: {fileID: 114550105035068950, guid: 3db0c417988181346aff5204366dd5d3,
-        type: 2}
-      propertyPath: m_name_next_scene
-      value: Level2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3db0c417988181346aff5204366dd5d3, type: 2}
   m_IsPrefabParent: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovePlatform))]
-public class CubeHoleScript : MonoBehaviour
+public class UpPlatformScript : MonoBehaviour
 {
     private MovePlatform m_move_script_;
     // Use this for initialization
