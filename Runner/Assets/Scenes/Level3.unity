@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 1172427307}
   - component: {fileID: 1172427306}
   m_Layer: 5
-  m_Name: CurrentTimerLabel (1)
+  m_Name: SavedTimerLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

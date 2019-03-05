@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using System.Linq;
+using Newtonsoft.Json;
 
 public class SaveManager : MonoBehaviour
 {
@@ -25,33 +26,42 @@ public class SaveManager : MonoBehaviour
     void Start()
     {
         m_path_ = string.Format("{0}/{1}", Application.streamingAssetsPath, m_file_name_);
-        Debug.Log(GetSavedTime());
+        //  Debug.Log(GetSavedData().m_levels_datas[0].m_level_name);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveLevelData(LevelData _lvlData)
     {
+        var saved = GetSavedData();
+        bool level_exist = saved.m_levels_datas.Exists(d => d.m_level_name == _lvlData.m_level_name);
+
+        if (level_exist)
+            saved.m_levels_datas.First(d => d.m_level_name == _lvlData.m_level_name).m_saved_time = _lvlData.m_saved_time;
+        else
+            saved.m_levels_datas.Add(_lvlData);
+        PersistData(saved);
 
     }
 
-    public void SaveTime(float _fTime)
+    private void PersistData(SaveData _sdData)
     {
-        SaveData save = new SaveData();
-        save.m_saved_time = _fTime;
-        File.WriteAllText(m_path_, JsonUtility.ToJson(save));
-    }
+        SaveData save = _sdData;
+        if (_sdData == null)
+            save = new SaveData();
 
-    public float GetSavedTime()
+        string json = JsonConvert.SerializeObject(save.m_levels_datas.ToArray());
+        File.WriteAllText(m_path_, json);
+    }
+    public SaveData GetSavedData()
     {
         if (IsFileExist())
         {
             string json = File.ReadAllText(m_path_);
             SaveData save = JsonUtility.FromJson<SaveData>(json);
 
-            Debug.Log(save.m_saved_time);
-            return save.m_saved_time;
+            Debug.Log(save.m_levels_datas[0].m_saved_time);
+            return save;
         }
-        return 0;
+        return new SaveData();
     }
 
     private bool IsFileExist()
@@ -62,5 +72,16 @@ public class SaveManager : MonoBehaviour
 
 public class SaveData
 {
+    public List<LevelData> m_levels_datas;
+
+    public SaveData()
+    {
+        m_levels_datas = new List<LevelData>();
+    }
+}
+
+public class LevelData
+{
     public float m_saved_time;
+    public string m_level_name;
 }

@@ -10,9 +10,8 @@ public class GameManager : MonoBehaviour
     private Player m_player_instance_;
     private Move m_move_instance_;
     private Text m_current_time_label_instance_;
-    private float m_start_time_;
-    private float m_current_time_;
 
+    private Timer m_timer_;
     private void Awake()
     {
         if (m_instance == null)
@@ -28,14 +27,14 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_start_time_ = Time.time;
+        m_timer_ = new Timer();
+        m_timer_.StartTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_current_time_ = Time.time - m_start_time_;
-        DisplayTime(Time.time);
+        
     }
 
     public void RegisterTextMeterLabel(Text _tMeterLabelInstance)
@@ -64,8 +63,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public float GetCurrentTime()
+    public string GetCurrentNameSecne()
     {
-        return m_current_time_;
+        return SceneManager.GetActiveScene().name;
     }
 }
