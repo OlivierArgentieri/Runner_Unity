@@ -1610,10 +1610,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172427304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62815034155c27b42a85b61aed9816ed, type: 3}
+  m_Script: {fileID: 11500000, guid: e3ebb8cd4e8dd7f42a0acb657b7af27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_label_meter_instance: {fileID: 1172427307}
+  m_label_saved_time_instance: {fileID: 1172427307}
 --- !u!114 &1172427307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62815034155c27b42a85b61aed9816ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_label_meter_instance: {fileID: 1904391735}
+  m_label_current_time_instance: {fileID: 1904391735}
 --- !u!114 &1904391735
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager m_instance;
     private Text m_current_time_label_instance_;
-
+    private Text m_saved_time_label_instance_;
     private Timer m_timer_;
     private void Awake()
     {
@@ -26,25 +26,29 @@ public class LevelManager : MonoBehaviour
     {
         m_timer_ = new Timer();
         m_timer_.StartTimer(Time.time);
+
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
         DisplayTime(m_timer_.GetCurrentTime(Time.time));
     }
 
-    public void RegisterTextMeterLabel(Text _tMeterLabelInstance)
+    public void RegisterTextCurrentTimeLabel(Text _tTimeLabelInstance)
     {
-        this.m_current_time_label_instance_ = _tMeterLabelInstance;
+        this.m_current_time_label_instance_ = _tTimeLabelInstance;
     }
 
+    public void RegisterTextSavedTimeLabel(Text _tTimeLabelInstance)
+    {
+        this.m_saved_time_label_instance_= _tTimeLabelInstance;
+    }
     public void SwitchScene(string _sNextSceneName)
     {
         SceneManager.LoadScene(_sNextSceneName);
         SaveManager.m_instance.SaveBestTimeByLevelName(SceneManager.GetActiveScene().name, m_timer_.GetCurrentTime(Time.time));
-        // todo save 
         m_timer_.ResetTimer(Time.time);
     }
 
@@ -61,5 +65,15 @@ public class LevelManager : MonoBehaviour
     private void DisplayTime(float _fTime)
     {
         m_current_time_label_instance_.text = string.Format("time : {0} s", _fTime.ToString("0.0"));
+    }
+
+    private void DisplaySavedTime(float _fTime)
+    {
+        m_saved_time_label_instance_.text = string.Format("Record : {0} s", _fTime.ToString("0.0"));
+    }
+
+    public void RefreshSavedTime()
+    {
+        DisplaySavedTime(SaveManager.m_instance.GetTimeByLevel(SceneManager.GetActiveScene().name));
     }
 }

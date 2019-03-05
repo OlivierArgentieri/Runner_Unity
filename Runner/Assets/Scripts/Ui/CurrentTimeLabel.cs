@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MeterLabel : MonoBehaviour
+public class CurrentTimeLabel : MonoBehaviour
 {
-    [SerializeField] private Text m_label_meter_instance;
+    [SerializeField] private Text m_label_current_time_instance;
     // Use this for initialization
     void Start()
     {
-        LevelManager.m_instance.RegisterTextMeterLabel(m_label_meter_instance);
+        LevelManager.m_instance.RegisterTextCurrentTimeLabel(m_label_current_time_instance);
     }
 
     // Update is called once per frame

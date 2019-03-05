@@ -82,7 +82,7 @@ public class SaveManager : MonoBehaviour
     {
         if (IsLevelExist(_sLevelName))
             return GetSavedData().m_levels_datas.First(d => d.m_level_name == _sLevelName).m_saved_time;
-        return 0;
+        return float.MaxValue;
     }
 
 }
