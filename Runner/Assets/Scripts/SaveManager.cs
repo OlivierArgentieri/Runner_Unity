@@ -35,7 +35,9 @@ public class SaveManager : MonoBehaviour
         bool level_exist = saved.m_levels_datas.Exists(d => d.m_level_name == _lvlData.m_level_name);
 
         if (level_exist)
+        {
             saved.m_levels_datas.First(d => d.m_level_name == _lvlData.m_level_name).m_saved_time = _lvlData.m_saved_time;
+        }
         else
             saved.m_levels_datas.Add(_lvlData);
         PersistData(saved);
@@ -48,7 +50,7 @@ public class SaveManager : MonoBehaviour
         if (_sdData == null)
             save = new SaveData();
 
-        string json = JsonConvert.SerializeObject(save.m_levels_datas.ToArray());
+        string json = JsonConvert.SerializeObject(save);
         File.WriteAllText(m_path_, json);
     }
     public SaveData GetSavedData()
@@ -56,9 +58,8 @@ public class SaveManager : MonoBehaviour
         if (IsFileExist())
         {
             string json = File.ReadAllText(m_path_);
-            SaveData save = JsonUtility.FromJson<SaveData>(json);
-
-            Debug.Log(save.m_levels_datas[0].m_saved_time);
+            SaveData save = JsonConvert.DeserializeObject<SaveData>(json);
+            
             return save;
         }
         return new SaveData();
@@ -72,6 +73,7 @@ public class SaveManager : MonoBehaviour
 
 public class SaveData
 {
+    [JsonProperty("Levels_Data")]
     public List<LevelData> m_levels_datas;
 
     public SaveData()
@@ -82,6 +84,9 @@ public class SaveData
 
 public class LevelData
 {
+    [JsonProperty("Saved_Time")]
     public float m_saved_time;
+
+    [JsonProperty("Level_Name")]
     public string m_level_name;
 }
