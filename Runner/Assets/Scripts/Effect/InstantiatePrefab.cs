@@ -9,7 +9,6 @@ public class InstantiatePrefab : MonoBehaviour
 
     public void Effect()
     {
-        Debug.Log("effect");
         Instantiate(m_prefabs, m_spawn_prefabs, Quaternion.identity);
     }
 }

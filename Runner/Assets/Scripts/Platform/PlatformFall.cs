@@ -20,7 +20,6 @@ public class PlatformFall : MonoBehaviour
         if(m_falling_)
         {
             Fall(m_speed_fall_);
-            Debug.Log("test");
         }
     }
 
@@ -35,8 +34,6 @@ public class PlatformFall : MonoBehaviour
         if (other.tag == "Player")
         {
             m_falling_ = true;
-            Debug.Log("test");
-
         }
     }
 }
