@@ -568,6 +568,8 @@ MonoBehaviour:
     type: 2}
   m_saveManager: {fileID: 114906420814823874, guid: 9f86343d5a2968a4bbd89036e54f6176,
     type: 2}
+  m_levelManager: {fileID: 114571624944710544, guid: cf392260b2373d44b8211e3967a5bd86,
+    type: 2}
 --- !u!81 &246423786
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1269,6 +1271,18 @@ Transform:
   m_PrefabParentObject: {fileID: 4422249122436220, guid: 3db0c417988181346aff5204366dd5d3,
     type: 2}
   m_PrefabInternal: {fileID: 80425845}
+--- !u!114 &822717112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822717110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beff49e7469ca8b49b02feab51f0f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name_next_scene: Level1
 --- !u!114 &822717116
 MonoBehaviour:
   m_ObjectHideFlags: 0

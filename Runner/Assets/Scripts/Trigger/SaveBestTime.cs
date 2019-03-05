@@ -17,7 +17,7 @@ public class SaveBestTime : MonoBehaviour
 
     public void SaveTime()
     {
-        SaveManager.m_instance.SaveLevelData(new LevelData { m_level_name = GameManager.m_instance.GetCurrentNameSecne(), m_saved_time = 11 });
+        SaveManager.m_instance.SaveLevelData(new LevelData { m_level_name = LevelManager.m_instance.GetCurrentNameSecene(), m_saved_time = 11 });
         // if (GameManager.m_instance.GetCurrentTime() > SaveManager.m_instance.GetSavedTime())
         // SaveManager.m_instance.SaveTime(GameManager.m_instance.GetCurrentTime());
     }

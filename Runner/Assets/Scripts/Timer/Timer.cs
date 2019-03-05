@@ -2,51 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Timer
 {
     private float m_start_time_;
-    private bool m_started_;
     private float m_current_time_;
-
-    // Update is called once per frame
-    void Update()
+    
+    // Update is called once per frame   
+    public void StartTimer(float _currentTime)
     {
-        if(m_started_)
-        {
-            Count();
-            Debug.Log(GetCurrentTime());
-        }
+        m_start_time_ = _currentTime;
     }
 
-    public void StartTimer()
-    {
-        m_start_time_ = Time.time;
-        m_started_ = true;
-    }
-
-    private void Count()
+    public void Count()
     {
         m_current_time_ = Time.time - m_start_time_;
     }
 
-    public float GetCurrentTime()
+    public float GetCurrentTime(float _fcurrentTime)
     {
-        return m_current_time_;
+        return _fcurrentTime - m_start_time_;
     }
 
     public void StopTimer()
     {
-        m_started_ = false;
-        ResetTimer();
+        // todo
     }
 
-    public void ResetTimer()
+    public void ResetTimer(float _currentTime)
     {
-        this.m_start_time_ = Time.time;
-    }
-
-    public void PauseTimer()
-    {
-        m_started_ = !m_started_;
+        StartTimer(_currentTime);
     }
 }

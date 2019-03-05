@@ -19,7 +19,7 @@ public class RespawnTriggerExit : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-            GameManager.m_instance.RestartLevel();
+            LevelManager.m_instance.RestartLevel();
         else
             Destroy(other.gameObject);
     }

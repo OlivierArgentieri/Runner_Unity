@@ -9,7 +9,7 @@ public class MeterLabel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameManager.m_instance.RegisterTextMeterLabel(m_label_meter_instance);
+        LevelManager.m_instance.RegisterTextMeterLabel(m_label_meter_instance);
     }
 
     // Update is called once per frame

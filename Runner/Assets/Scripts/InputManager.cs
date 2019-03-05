@@ -21,8 +21,7 @@ public class InputManager : MonoBehaviour
 
         StartCoroutine("TriggerInput");
     }
-
-    private IEnumerator m_coroutine_;
+    
 
     public delegate void MouseEventHandler(float _fxValue, float _fyValue, float _fWheelValue);
     public event MouseEventHandler OnMouse;

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-
     [SerializeField] private GameObject m_gameManager;
     [SerializeField] private GameObject m_inputManager;
     [SerializeField] private SaveManager m_saveManager;
+    [SerializeField] private LevelManager m_levelManager;
 
     // Use this for initialization
     void Awake()
@@ -20,11 +20,8 @@ public class Loader : MonoBehaviour
 
         if (SaveManager.m_instance == null)
             Instantiate(m_saveManager);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (LevelManager.m_instance == null)
+            Instantiate(m_levelManager);
     }
 }
