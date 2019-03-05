@@ -32,16 +32,18 @@ public class SaveManager : MonoBehaviour
     public void SaveLevelData(LevelData _lvlData)
     {
         var saved = GetSavedData();
-        bool level_exist = saved.m_levels_datas.Exists(d => d.m_level_name == _lvlData.m_level_name);
-
-        if (level_exist)
+        if (IsLevelExist(_lvlData.m_level_name))
         {
             saved.m_levels_datas.First(d => d.m_level_name == _lvlData.m_level_name).m_saved_time = _lvlData.m_saved_time;
         }
         else
             saved.m_levels_datas.Add(_lvlData);
         PersistData(saved);
+    }
 
+    private bool IsLevelExist(string _sLevelName)
+    {
+        return GetSavedData().m_levels_datas.Exists(d => d.m_level_name == _sLevelName);
     }
 
     private void PersistData(SaveData _sdData)
@@ -69,6 +71,20 @@ public class SaveManager : MonoBehaviour
     {
         return File.Exists(m_path_);
     }
+
+    public void SaveBestTimeByLevelName(string _sLevelName, float _fTestedTime)
+    {
+        if(GetBestTimeByLevel(_sLevelName) < _fTestedTime)
+            SaveLevelData(new LevelData { m_level_name = _sLevelName, m_saved_time = _fTestedTime });
+    }
+
+    public float GetBestTimeByLevel(string _sLevelName)
+    {
+        if (IsLevelExist(_sLevelName))
+            return GetSavedData().m_levels_datas.First(d => d.m_level_name == _sLevelName).m_saved_time;
+        return 0;
+    }
+
 }
 
 public class SaveData
