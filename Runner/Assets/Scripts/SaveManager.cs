@@ -74,11 +74,11 @@ public class SaveManager : MonoBehaviour
 
     public void SaveBestTimeByLevelName(string _sLevelName, float _fTestedTime)
     {
-        if(GetBestTimeByLevel(_sLevelName) < _fTestedTime)
+        if(GetTimeByLevel(_sLevelName) > _fTestedTime)
             SaveLevelData(new LevelData { m_level_name = _sLevelName, m_saved_time = _fTestedTime });
     }
 
-    public float GetBestTimeByLevel(string _sLevelName)
+    public float GetTimeByLevel(string _sLevelName)
     {
         if (IsLevelExist(_sLevelName))
             return GetSavedData().m_levels_datas.First(d => d.m_level_name == _sLevelName).m_saved_time;

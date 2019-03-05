@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
     public void SwitchScene(string _sNextSceneName)
     {
         SceneManager.LoadScene(_sNextSceneName);
+        SaveManager.m_instance.SaveBestTimeByLevelName(SceneManager.GetActiveScene().name, m_timer_.GetCurrentTime(Time.time));
         // todo save 
         m_timer_.ResetTimer(Time.time);
     }
