@@ -17,13 +17,7 @@ public class PauseCanvasScript : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     public void RestartLevel()
     {
         LevelManager.m_instance.ResetLevel();
