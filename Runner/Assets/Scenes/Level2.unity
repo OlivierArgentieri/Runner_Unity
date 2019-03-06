@@ -8968,7 +8968,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_ready_material: {fileID: 2100000, guid: c98fa1e8844b5a64b93ef071b93069b3, type: 2}
+  m_ready_material: {fileID: 2100000, guid: a7b79e41805d4f64f94eb3be0992200c, type: 2}
   m_used_material: {fileID: 2100000, guid: 53b19150d40a55e4ebac7afaeb015938, type: 2}
   m_cooldown: 3
   m_do_once: 0
