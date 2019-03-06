@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
         if (m_instance == null)
             m_instance = this;
 
-
         if (m_instance != this)
             Destroy(gameObject);
+
+        m_instance = this;
 
         DontDestroyOnLoad(gameObject);
     }

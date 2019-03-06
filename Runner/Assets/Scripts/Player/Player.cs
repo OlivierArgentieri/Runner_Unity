@@ -17,10 +17,8 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameManager.m_instance.RegisterPlayer(this);
 
         m_jump_ = GetComponent<Jump>();
-
         m_move_ = GetComponent<Move>();
         m_move_forward_pressed_ = false;
         m_move_backward_pressed_ = false;
@@ -39,6 +37,7 @@ public class Player : MonoBehaviour
 
         InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
         InputManager.m_instance.OnKeyboardActivateButtonPressed += OnKeyboardActivateButtonPressedEventHandler;
+        GameManager.m_instance.RegisterPlayer(this);
     }
 
     // Update is called once per frame

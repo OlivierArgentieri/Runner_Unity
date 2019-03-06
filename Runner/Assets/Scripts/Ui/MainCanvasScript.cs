@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class MainCanvasScript : MonoBehaviour
+{
+    // Use this for initialization
+    void Start()
+    {
+        if (GetComponent<MainCanvasScript>() != null)
+        {
+            //Destroy(this.gameObject);
+            //return;
+        }
+        
+       // LevelManager.m_instance.RegisterMainCanvas(this.gameObject);
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        DontDestroyOnLoad(this.gameObject);
+    }
 }

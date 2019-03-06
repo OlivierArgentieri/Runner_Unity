@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class PauseCanvasScript : MonoBehaviour
 {
     // Use this for initialization
     void Start()
     {
-        this.gameObject.SetActive(false);
+        if (GetComponent<PauseCanvasScript>() != null)
+        {
+            //Destroy(this.gameObject);
+            //return;
+        }
+       
         LevelManager.m_instance.RegisterPauseCanvas(this.gameObject);
 
         DontDestroyOnLoad(this.gameObject);

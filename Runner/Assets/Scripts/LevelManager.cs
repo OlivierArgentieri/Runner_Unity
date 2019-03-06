@@ -47,11 +47,12 @@ public class LevelManager : MonoBehaviour
     public void RegisterPauseCanvas(GameObject _cPauseCanvas)
     {
         m_pause_canvas_ = _cPauseCanvas;
+        m_pause_canvas_.SetActive(false);
     }
 
     public void RegisterTextSavedTimeLabel(Text _tTimeLabelInstance)
     {
-        this.m_saved_time_label_instance_= _tTimeLabelInstance;
+        this.m_saved_time_label_instance_ = _tTimeLabelInstance;
     }
     public void SwitchScene(string _sNextSceneName)
     {
@@ -78,12 +79,14 @@ public class LevelManager : MonoBehaviour
 
     private void DisplayTime(float _fTime)
     {
-        m_current_time_label_instance_.text = string.Format("time : {0} s", _fTime.ToString("0.0"));
+        if (m_current_time_label_instance_ != null)
+            m_current_time_label_instance_.text = string.Format("time : {0} s", _fTime.ToString("0.0"));
     }
 
     private void DisplaySavedTime(float _fTime)
     {
-        m_saved_time_label_instance_.text = string.Format("Record : {0} s", _fTime.ToString("0.0"));
+        if (m_saved_time_label_instance_ != null)
+            m_saved_time_label_instance_.text = string.Format("Record : {0} s", _fTime.ToString("0.0"));
     }
 
     public void RefreshSavedTime()
