@@ -79,6 +79,14 @@ public class InputManager : MonoBehaviour
     public delegate void KeyboardActivateButtonReleasedEventHandler();
     public event KeyboardActivateButtonReleasedEventHandler OnKeyboardActivateButtonReleased;
 
+    // Escaped pressed
+    public delegate void KeyboardEscapeButtonPressedEventHandler();
+    public event KeyboardEscapeButtonPressedEventHandler OnKeyboardEscapeButtonPressed;
+
+    // Escaped released
+    public delegate void KeyboardEscapeButtonReleasedEventHandler();
+    public event KeyboardEscapeButtonReleasedEventHandler OnKeyboardEscapeButtonReleased;
+
 
     private IEnumerator TriggerInput()
     {
@@ -102,7 +110,10 @@ public class InputManager : MonoBehaviour
 
             TriggerKeyboardActivateButtonPressedEventHandler();
             TriggerKeyboardActivateButtonReleasedEventHandler();
-             yield return null;
+
+            TriggerKeyboardEscapeButtonPressedEventHandler();
+            TriggerKeyboardEscapeButtonReleasedEventHandler();
+            yield return null;
         }
     }
 
@@ -188,5 +199,17 @@ public class InputManager : MonoBehaviour
     {
         if (OnKeyboardActivateButtonReleased != null && Input.GetKeyUp(KeyCode.E))
             OnKeyboardActivateButtonReleased();
+    }
+
+    public void TriggerKeyboardEscapeButtonPressedEventHandler()
+    {
+        if (OnKeyboardEscapeButtonPressed != null && Input.GetKeyDown(KeyCode.Escape))
+            OnKeyboardEscapeButtonPressed();
+    }
+
+    public void TriggerKeyboardEscapeButtonReleasedEventHandler()
+    {
+        if (OnKeyboardEscapeButtonReleased != null && Input.GetKeyUp(KeyCode.Escape))
+            OnKeyboardEscapeButtonReleased();
     }
 }

@@ -76,4 +76,9 @@ public class LevelManager : MonoBehaviour
     {
         DisplaySavedTime(SaveManager.m_instance.GetTimeByLevel(SceneManager.GetActiveScene().name));
     }
+
+    public void PauseCurrentLevel()
+    {
+
+    }
 }
