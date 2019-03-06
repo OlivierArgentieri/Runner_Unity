@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     private Text m_current_time_label_instance_;
     private Text m_saved_time_label_instance_;
     private Timer m_timer_;
+    private GameObject m_pause_canvas_;
+    private bool m_paused_ = false;
     private void Awake()
     {
         if (m_instance == null)
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
         m_timer_ = new Timer();
         m_timer_.StartTimer(Time.time);
 
+        InputManager.m_instance.OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
     }
 
 
@@ -39,6 +42,11 @@ public class LevelManager : MonoBehaviour
     public void RegisterTextCurrentTimeLabel(Text _tTimeLabelInstance)
     {
         this.m_current_time_label_instance_ = _tTimeLabelInstance;
+    }
+
+    public void RegisterPauseCanvas(GameObject _cPauseCanvas)
+    {
+        m_pause_canvas_ = _cPauseCanvas;
     }
 
     public void RegisterTextSavedTimeLabel(Text _tTimeLabelInstance)
@@ -55,6 +63,12 @@ public class LevelManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ResetLevel()
+    {
+        RestartLevel();
+        m_timer_.ResetTimer(Time.time);
     }
 
     public string GetCurrentNameSecene()
@@ -79,6 +93,16 @@ public class LevelManager : MonoBehaviour
 
     public void PauseCurrentLevel()
     {
-
+        if (!m_paused_)
+        {
+            Time.timeScale = 0;
+            m_pause_canvas_.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            m_pause_canvas_.SetActive(false);
+        }
+        m_paused_ = !m_paused_;
     }
 }

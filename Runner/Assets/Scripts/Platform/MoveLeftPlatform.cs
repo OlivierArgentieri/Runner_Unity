@@ -35,7 +35,6 @@ public class MoveLeftPlatform : MonoBehaviour
             collision.gameObject.transform.parent = transform;
     }
 
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")

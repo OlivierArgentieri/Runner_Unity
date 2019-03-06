@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4791633701157388}
   m_Layer: 0
   m_Name: Stone Tower
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,6 +269,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   m_StaticBatchInfo:
@@ -303,6 +304,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   m_StaticBatchInfo:
@@ -337,6 +339,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   m_StaticBatchInfo:
@@ -371,6 +374,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   m_StaticBatchInfo:
@@ -405,6 +409,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   m_StaticBatchInfo:
@@ -439,6 +444,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
@@ -475,6 +481,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
   - {fileID: 2100000, guid: f2411d56cf2e2b24ea5e56d791298ee4, type: 2}
