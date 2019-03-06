@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 33519304215355532}
   - component: {fileID: 23714357560909244}
   - component: {fileID: 65866802004119436}
-  - component: {fileID: 114285068960896208}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -213,26 +212,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114285068960896208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1670598045199234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c51f286cd32524cafe70d54058e822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_on_activate:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_ready_material: {fileID: 0}
-  m_used_material: {fileID: 0}
-  m_cooldown: 0
-  m_do_once: 0
 --- !u!114 &114503552198969120
 MonoBehaviour:
   m_ObjectHideFlags: 1
