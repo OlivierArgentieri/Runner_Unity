@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool m_move_left_pressed_;
     private bool m_move_right_pressed_;
     // Use this for initialization
+
     void Start()
     {
         m_jump_ = GetComponent<Jump>();
