@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         m_jump_ = GetComponent<Jump>();
         m_move_ = GetComponent<Move>();
         m_move_forward_pressed_ = false;
