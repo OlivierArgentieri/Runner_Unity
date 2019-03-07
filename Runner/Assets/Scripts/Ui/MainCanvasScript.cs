@@ -12,9 +12,7 @@ public class MainCanvasScript : MonoBehaviour
             //Destroy(this.gameObject);
             //return;
         }
-        
-       // LevelManager.m_instance.RegisterMainCanvas(this.gameObject);
-
+        //LevelManager.m_instance.RegisterMainCanvas(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
 }

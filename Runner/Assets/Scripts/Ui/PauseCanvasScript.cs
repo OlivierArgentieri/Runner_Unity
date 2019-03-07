@@ -14,7 +14,6 @@ public class PauseCanvasScript : MonoBehaviour
         }
        
         LevelManager.m_instance.RegisterPauseCanvas(this.gameObject);
-
         DontDestroyOnLoad(this.gameObject);
     }
     
