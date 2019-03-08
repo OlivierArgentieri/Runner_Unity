@@ -15,6 +15,7 @@ public class LevelManager
     }
     private Text m_current_time_label_instance_;
     private Text m_saved_time_label_instance_;
+    private Text m_can_press_e_label_instance_;
     private Timer m_timer_;
     private GameObject m_pause_canvas_;
     private bool m_paused_ = false;
@@ -47,6 +48,12 @@ public class LevelManager
     {
         this.m_saved_time_label_instance_ = _tTimeLabelInstance;
     }
+
+    public void RegisterCanPressELabel(Text _tCanPressELabelInstance)
+    {
+        this.m_can_press_e_label_instance_ = _tCanPressELabelInstance;
+    }
+
     public void SwitchScene(string _sNextSceneName)
     {
         SceneManager.LoadScene(_sNextSceneName);
@@ -58,7 +65,6 @@ public class LevelManager
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
     public void ResetLevel()
     {
         RestartLevel();
