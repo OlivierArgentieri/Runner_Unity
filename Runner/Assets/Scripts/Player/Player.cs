@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         InputManager.GetInstance().OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
         InputManager.GetInstance().OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
         InputManager.GetInstance().OnKeyboardActivateButtonPressed += OnKeyboardActivateButtonPressedEventHandler;
-        GameManager.m_instance.RegisterPlayer(this);
+        GameManager.GetInstance().RegisterPlayer(this);
     }
 
     // Update is called once per frame

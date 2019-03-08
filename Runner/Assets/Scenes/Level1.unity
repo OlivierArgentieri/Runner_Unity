@@ -3896,13 +3896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c559e9dd1cd6204faf24b5d7878f60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_gameManager: {fileID: 1985257248118266, guid: 33668a58fe1212f4d85bdfcce7d74fa4,
-    type: 2}
-  m_inputManager: {fileID: 1678844013159436, guid: 0ca4f61bf9339ce478b973986f2ccbbb,
-    type: 2}
   m_saveManager: {fileID: 1395597183614472, guid: 9f86343d5a2968a4bbd89036e54f6176,
-    type: 2}
-  m_levelManager: {fileID: 1475604163773154, guid: cf392260b2373d44b8211e3967a5bd86,
     type: 2}
   m_pause_canvas: {fileID: 1248991855677842, guid: 8b2bb5e8eefb522409a571c632826f4b,
     type: 2}

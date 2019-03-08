@@ -9,8 +9,8 @@ public class SavedTimeLabel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        LevelManager.m_instance.RegisterTextSavedTimeLabel(m_label_saved_time_instance);
-        LevelManager.m_instance.RefreshSavedTime();
+        LevelManager.GetInstance().RegisterTextSavedTimeLabel(m_label_saved_time_instance);
+        LevelManager.GetInstance().RefreshSavedTime();
     }
 
     // Update is called once per frame

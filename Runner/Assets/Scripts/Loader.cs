@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-    [SerializeField] private GameObject m_gameManager;
-    [SerializeField] private GameObject m_saveManager;
-    [SerializeField] private GameObject m_levelManager;
-
+    public static Loader m_instance_;
     [SerializeField] private GameObject m_pause_canvas;
     [SerializeField] private GameObject m_main_canvas;
 
     // Use this for initialization
     void Awake()
     {
+        if (m_instance_ == null)
+            m_instance_ = this;
+        if (m_instance_ != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        if (GameManager.m_instance == null)
-            Instantiate(m_gameManager);
+        m_instance_ = this;
+        DontDestroyOnLoad(gameObject);
         
-        if (SaveManager.m_instance == null)
-            Instantiate(m_saveManager);
-
-        if (LevelManager.m_instance == null)
-            Instantiate(m_levelManager);
-
-
+        
         Instantiate(m_pause_canvas);
         Instantiate(m_main_canvas);
+        GameManager.GetInstance();
+        SaveManager.GetInstance();
     }
 
     private void Update()
     {
+        LevelManager.GetInstance().Update();
         InputManager.GetInstance().Update();
     }
 }

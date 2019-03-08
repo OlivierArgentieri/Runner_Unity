@@ -21,6 +21,6 @@ public class EndLevelTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            LevelManager.m_instance.SwitchScene(m_name_next_scene);
+            LevelManager.GetInstance().SwitchScene(m_name_next_scene);
     }
 }

@@ -9,7 +9,7 @@ public class CurrentTimeLabel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        LevelManager.m_instance.RegisterTextCurrentTimeLabel(m_label_current_time_instance);
+        LevelManager.GetInstance().RegisterTextCurrentTimeLabel(m_label_current_time_instance);
     }
 
     // Update is called once per frame

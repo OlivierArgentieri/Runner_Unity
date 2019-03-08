@@ -5,28 +5,21 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager
 {
-    public static SaveManager m_instance;
-
-    private string m_path_;
-    private const string m_file_name_ = "save.json";
-    private void Awake()
+    private static SaveManager m_instance;
+    public static SaveManager GetInstance()
     {
         if (m_instance == null)
-            m_instance = this;
-
-        if (m_instance != this)
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
+            m_instance = new SaveManager();
+        return m_instance;
     }
+    private string m_path_;
+    private const string m_file_name_ = "save.json";
 
-    // Use this for initialization
-    void Start()
+    private SaveManager()
     {
         m_path_ = string.Format("{0}/{1}", Application.streamingAssetsPath, m_file_name_);
-        //  Debug.Log(GetSavedData().m_levels_datas[0].m_level_name);
     }
 
     public void SaveLevelData(LevelData _lvlData)

@@ -13,13 +13,13 @@ public class PauseCanvasScript : MonoBehaviour
             //return;
         }
        
-        LevelManager.m_instance.RegisterPauseCanvas(this.gameObject);
+        LevelManager.GetInstance().RegisterPauseCanvas(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
     
     public void RestartLevel()
     {
-        LevelManager.m_instance.ResetLevel();
-        LevelManager.m_instance.PauseCurrentLevel();
+        LevelManager.GetInstance().ResetLevel();
+        LevelManager.GetInstance().PauseCurrentLevel();
     }
 }

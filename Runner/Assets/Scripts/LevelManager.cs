@@ -4,37 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager
 {
-    public static LevelManager m_instance;
+    private static LevelManager m_instance;
+    public static LevelManager GetInstance()
+    {
+        if (m_instance == null)
+           m_instance = new LevelManager();
+        return m_instance;
+    }
     private Text m_current_time_label_instance_;
     private Text m_saved_time_label_instance_;
     private Timer m_timer_;
     private GameObject m_pause_canvas_;
     private bool m_paused_ = false;
-    private void Awake()
-    {
-        if (m_instance == null)
-            m_instance = this;
 
-
-        if (m_instance != this)
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
+    private LevelManager()
     {
         m_timer_ = new Timer();
         m_timer_.StartTimer(Time.time);
-
         InputManager.GetInstance().OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
     }
 
-
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         DisplayTime(m_timer_.GetCurrentTime(Time.time));
     }
@@ -57,7 +50,7 @@ public class LevelManager : MonoBehaviour
     public void SwitchScene(string _sNextSceneName)
     {
         SceneManager.LoadScene(_sNextSceneName);
-        SaveManager.m_instance.SaveBestTimeByLevelName(SceneManager.GetActiveScene().name, m_timer_.GetCurrentTime(Time.time));
+        SaveManager.GetInstance().SaveBestTimeByLevelName(SceneManager.GetActiveScene().name, m_timer_.GetCurrentTime(Time.time));
         m_timer_.ResetTimer(Time.time);
     }
 
@@ -91,7 +84,7 @@ public class LevelManager : MonoBehaviour
 
     public void RefreshSavedTime()
     {
-        DisplaySavedTime(SaveManager.m_instance.GetTimeByLevel(SceneManager.GetActiveScene().name));
+        DisplaySavedTime(SaveManager.GetInstance().GetTimeByLevel(SceneManager.GetActiveScene().name)); // todo
     }
 
     public void PauseCurrentLevel()
