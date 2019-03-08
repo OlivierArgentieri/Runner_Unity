@@ -13,7 +13,7 @@ public class Loader : MonoBehaviour
     [SerializeField] private GameObject m_main_canvas;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         if (GameManager.m_instance == null)
