@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DestructivePlatform : MonoBehaviour
 {
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

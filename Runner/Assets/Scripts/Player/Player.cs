@@ -25,18 +25,16 @@ public class Player : MonoBehaviour
         m_move_left_pressed_ = false;
         m_move_right_pressed_ = false;
 
-        InputManager.m_instance.OnKeyboardMoveForwardButtonPressed += OnKeyboardMoveForwardButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveBackwardButtonPressed += OnKeyboardMoveBackwardButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveForwardButtonReleased += OnKeyboardMoveForwardButtonReleasedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveBackwardButtonReleased += OnKeyboardMoveBackwardButtonReleasedEventHandler;
-
-        InputManager.m_instance.OnKeyboardMoveLeftButtonPressed += OnKeyboardMoveLeftButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveLeftButtonReleased += OnKeyboardMoveLeftButtonReleasedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveRightButtonPressed += OnKeyboardMoveRightButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
-
-        InputManager.m_instance.OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardActivateButtonPressed += OnKeyboardActivateButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveForwardButtonPressed += OnKeyboardMoveForwardButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveBackwardButtonPressed += OnKeyboardMoveBackwardButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveForwardButtonReleased += OnKeyboardMoveForwardButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveBackwardButtonReleased += OnKeyboardMoveBackwardButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveLeftButtonPressed += OnKeyboardMoveLeftButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveLeftButtonReleased += OnKeyboardMoveLeftButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveRightButtonPressed += OnKeyboardMoveRightButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveRightButtonReleased += OnKeyboardMoveRightButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardSpaceButtonPressed += OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardActivateButtonPressed += OnKeyboardActivateButtonPressedEventHandler;
         GameManager.m_instance.RegisterPlayer(this);
     }
 
@@ -116,17 +114,15 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
-        InputManager.m_instance.OnKeyboardMoveForwardButtonPressed -= OnKeyboardMoveForwardButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveBackwardButtonPressed -= OnKeyboardMoveBackwardButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveForwardButtonReleased -= OnKeyboardMoveForwardButtonReleasedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveBackwardButtonReleased -= OnKeyboardMoveBackwardButtonReleasedEventHandler;
-
-        InputManager.m_instance.OnKeyboardMoveLeftButtonPressed -= OnKeyboardMoveLeftButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveLeftButtonReleased -= OnKeyboardMoveLeftButtonReleasedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveRightButtonPressed -= OnKeyboardMoveRightButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
-
-        InputManager.m_instance.OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
-        InputManager.m_instance.OnKeyboardActivateButtonPressed -= OnKeyboardActivateButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveForwardButtonPressed -= OnKeyboardMoveForwardButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveBackwardButtonPressed -= OnKeyboardMoveBackwardButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveForwardButtonReleased -= OnKeyboardMoveForwardButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveBackwardButtonReleased -= OnKeyboardMoveBackwardButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveLeftButtonPressed -= OnKeyboardMoveLeftButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveLeftButtonReleased -= OnKeyboardMoveLeftButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveRightButtonPressed -= OnKeyboardMoveRightButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardMoveRightButtonReleased -= OnKeyboardMoveRightButtonReleasedEventHandler;
+        InputManager.GetInstance().OnKeyboardSpaceButtonPressed -= OnKeyboardSpaceButtonPressedEventHandler;
+        InputManager.GetInstance().OnKeyboardActivateButtonPressed -= OnKeyboardActivateButtonPressedEventHandler;
     }
 }

@@ -3,26 +3,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class InputManager
 {
-    public static InputManager m_instance;
-
-    private void Awake()
+    private static InputManager m_instance;
+    public static InputManager GetInstance()
     {
         if (m_instance == null)
-            m_instance = this;
-
-        if (m_instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(this.gameObject);
-
-        StartCoroutine("TriggerInput");
+            m_instance = new InputManager();
+        return m_instance;
     }
     
-
     public delegate void MouseEventHandler(float _fxValue, float _fyValue, float _fWheelValue);
     public event MouseEventHandler OnMouse;
 
@@ -86,35 +76,30 @@ public class InputManager : MonoBehaviour
     // Escaped released
     public delegate void KeyboardEscapeButtonReleasedEventHandler();
     public event KeyboardEscapeButtonReleasedEventHandler OnKeyboardEscapeButtonReleased;
-
-
-    private IEnumerator TriggerInput()
+    
+    public void Update()
     {
-        while(true)
-        { 
-            TriggerMouseEventHandler();
-            TriggerLeftMouseButtonEventHandler();
-            TriggerRightMouseButtonEventHandler();
+        TriggerMouseEventHandler();
+        TriggerLeftMouseButtonEventHandler();
+        TriggerRightMouseButtonEventHandler();
 
-            TriggerKeyboardMoveForwardButtonPressed();
-            TriggerKeyboardMoveBackwardButtonPressed();
-            TriggerKeyboardMoveForwardButtonReleased();
-            TriggerKeyboardMoveBackwardButtonReleased();
+        TriggerKeyboardMoveForwardButtonPressed();
+        TriggerKeyboardMoveBackwardButtonPressed();
+        TriggerKeyboardMoveForwardButtonReleased();
+        TriggerKeyboardMoveBackwardButtonReleased();
 
-            TriggerKeyboardMoveLeftButtonPressed();
-            TriggerKeyboardMoveLeftButtonReleased();
-            TriggerKeyboardMoveRightButtonPressed();
-            TriggerKeyboardMoveRightButtonReleased();
+        TriggerKeyboardMoveLeftButtonPressed();
+        TriggerKeyboardMoveLeftButtonReleased();
+        TriggerKeyboardMoveRightButtonPressed();
+        TriggerKeyboardMoveRightButtonReleased();
 
-            TriggerKeyboardSpaceButtonPressedEventHandler();
+        TriggerKeyboardSpaceButtonPressedEventHandler();
 
-            TriggerKeyboardActivateButtonPressedEventHandler();
-            TriggerKeyboardActivateButtonReleasedEventHandler();
+        TriggerKeyboardActivateButtonPressedEventHandler();
+        TriggerKeyboardActivateButtonReleasedEventHandler();
 
-            TriggerKeyboardEscapeButtonPressedEventHandler();
-            TriggerKeyboardEscapeButtonReleasedEventHandler();
-            yield return null;
-        }
+        TriggerKeyboardEscapeButtonPressedEventHandler();
+        TriggerKeyboardEscapeButtonReleasedEventHandler();
     }
 
     public void TriggerMouseEventHandler()

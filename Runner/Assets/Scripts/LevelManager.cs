@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
         m_timer_ = new Timer();
         m_timer_.StartTimer(Time.time);
 
-        InputManager.m_instance.OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
+        InputManager.GetInstance().OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
     }
 
 
