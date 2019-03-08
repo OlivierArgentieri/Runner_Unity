@@ -12,10 +12,4 @@ public class SavedTimeLabel : MonoBehaviour
         LevelManager.GetInstance().RegisterTextSavedTimeLabel(m_label_saved_time_instance);
         LevelManager.GetInstance().RefreshSavedTime();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
