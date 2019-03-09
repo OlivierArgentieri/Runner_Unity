@@ -85,13 +85,13 @@ public class LevelManager
     private void DisplayTime(float _fTime)
     {
         if (m_current_time_label_instance_ != null)
-            m_current_time_label_instance_.text = string.Format("time : {0} s", _fTime.ToString("0.0"));
+            m_current_time_label_instance_.text = string.Format("time : {0:0.0} s", _fTime);
     }
 
     private void DisplaySavedTime(float _fTime)
     {
         if (m_saved_time_label_instance_ != null)
-            m_saved_time_label_instance_.text = string.Format("Record : {0} s", _fTime.ToString("0.0"));
+            m_saved_time_label_instance_.text = string.Format("Record : {0:0.0} s", _fTime);
     }
 
     public void RefreshSavedTime()
