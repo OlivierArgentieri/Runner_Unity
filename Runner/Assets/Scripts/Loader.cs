@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-    public static Loader m_instance_;
+    private static Loader m_instance_;
     [SerializeField] private GameObject m_pause_canvas;
     [SerializeField] private GameObject m_main_canvas;
 
@@ -33,5 +33,15 @@ public class Loader : MonoBehaviour
     {
         LevelManager.GetInstance().Update();
         InputManager.GetInstance().Update();
+    }
+
+    public static Loader GetInstance()
+    {
+        if (m_instance_ == null)
+        {
+            GameObject go = new GameObject("Loader");
+            go.AddComponent<Loader>();
+        }
+        return m_instance_;
     }
 }
