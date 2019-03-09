@@ -482,7 +482,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1215896310041934, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
       propertyPath: m_Name
-      value: LoadLevel
+      value: LoadScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
@@ -544,7 +544,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1215896310041934, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
       propertyPath: m_Name
-      value: LoadLevel
+      value: LoadScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
@@ -599,14 +599,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1215896310041934, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
+      propertyPath: m_Name
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 114021127047397014, guid: 38e61350179c9da49a3622c1d90b9aa5,
         type: 2}
       propertyPath: m_name_scene
       value: Level1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215896310041934, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}
-      propertyPath: m_Name
-      value: LoadLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e61350179c9da49a3622c1d90b9aa5, type: 2}

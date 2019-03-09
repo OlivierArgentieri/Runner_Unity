@@ -26,8 +26,7 @@ public class LevelManager
         m_timer_.StartTimer(Time.time);
         InputManager.GetInstance().OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
     }
-
-    // Update is called once per frame
+    
     public void Update()
     {
         DisplayTime(m_timer_.GetCurrentTime(Time.time));
@@ -56,12 +55,18 @@ public class LevelManager
 
     public void SwitchScene(string _sNextSceneName)
     {
-        SceneManager.LoadScene(_sNextSceneName);
+        Loadscene(_sNextSceneName);
         SaveManager.GetInstance().SaveBestTimeByLevelName(SceneManager.GetActiveScene().name, m_timer_.GetCurrentTime(Time.time));
         m_timer_.ResetTimer(Time.time);
+        Time.timeScale = 1f;
+        m_paused_ = false;
     }
 
-
+    public void Loadscene(string _sSceneName)
+    {
+        SceneManager.LoadScene(_sSceneName);
+    }
+    
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

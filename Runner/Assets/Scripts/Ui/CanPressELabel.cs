@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CanPressELabel : MonoBehaviour
 {
-
     // Use this for initialization
     void Start()
     {

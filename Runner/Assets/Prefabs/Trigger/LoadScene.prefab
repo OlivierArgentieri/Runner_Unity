@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4912478806758704}
   - component: {fileID: 114021127047397014}
   m_Layer: 0
-  m_Name: LoadLevel
+  m_Name: LoadScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
