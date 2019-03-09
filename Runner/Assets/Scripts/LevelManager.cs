@@ -4,15 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelManager
+public class LevelManager : MonoBehaviour
 {
-    private static LevelManager m_instance;
-    public static LevelManager GetInstance()
-    {
-        if (m_instance == null)
-           m_instance = new LevelManager();
-        return m_instance;
-    }
+    private static LevelManager m_instance_;
+
     private Text m_current_time_label_instance_;
     private Text m_saved_time_label_instance_;
     private Text m_can_press_e_label_instance_;
@@ -20,8 +15,28 @@ public class LevelManager
     private GameObject m_pause_canvas_;
     private bool m_paused_ = false;
 
-    private LevelManager()
+
+    public static LevelManager GetInstance()
     {
+        if (m_instance_ == null)
+        {
+            GameObject go = new GameObject("LevelManager");
+            go.AddComponent<LevelManager>();
+        }
+        return m_instance_;
+    }
+
+    private void Awake()
+    {
+        if (m_instance_ == null)
+            m_instance_ = this;
+        if (m_instance_ != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        m_instance_ = this;
         m_timer_ = new Timer();
         m_timer_.StartTimer(Time.time);
         InputManager.GetInstance().OnKeyboardEscapeButtonPressed += PauseCurrentLevel;
@@ -60,6 +75,7 @@ public class LevelManager
         m_timer_.ResetTimer(Time.time);
         Time.timeScale = 1f;
         m_paused_ = false;
+        SoundManager.GetInstance().PlayMainTheme();
     }
 
     public void Loadscene(string _sSceneName)
@@ -112,5 +128,10 @@ public class LevelManager
             m_pause_canvas_.SetActive(false);
         }
         m_paused_ = !m_paused_;
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.GetInstance().OnKeyboardEscapeButtonPressed -= PauseCurrentLevel;
     }
 }

@@ -9,5 +9,11 @@ public class LoadScenes : MonoBehaviour
     public void LoadScene()
     {
         LevelManager.GetInstance().Loadscene(m_name_scene);
+        SoundManager.GetInstance().StopMainTheme();
+    }
+
+    public void Switchscene()
+    {
+        LevelManager.GetInstance().SwitchScene(m_name_scene);
     }
 }

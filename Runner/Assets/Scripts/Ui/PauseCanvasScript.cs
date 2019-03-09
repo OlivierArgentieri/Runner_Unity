@@ -7,8 +7,6 @@ public class PauseCanvasScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
-       
         LevelManager.GetInstance().RegisterPauseCanvas(this.gameObject);
        // DontDestroyOnLoad(this.gameObject);
     }

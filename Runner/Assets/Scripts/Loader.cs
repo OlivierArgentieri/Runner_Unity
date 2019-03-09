@@ -7,8 +7,8 @@ public class Loader : MonoBehaviour
     private static Loader m_instance_;
     [SerializeField] private GameObject m_pause_canvas;
     [SerializeField] private GameObject m_main_canvas;
+    [SerializeField] private AudioClip m_main_theme;
 
-    // Use this for initialization
     void Awake()
     {
         if (m_instance_ == null)
@@ -22,20 +22,22 @@ public class Loader : MonoBehaviour
         m_instance_ = this;
         //DontDestroyOnLoad(gameObject);
         
-        
         Instantiate(m_pause_canvas);
         Instantiate(m_main_canvas);
-        GameManager.GetInstance();
-        SaveManager.GetInstance();
+
+        SoundManager.GetInstance().RegisterMainTheme(m_main_theme);
+        GameManager.GetInstance(); // todo
+        SaveManager.GetInstance(); // todo
+        LevelManager.GetInstance();
     }
 
     private void Update()
     {
-        LevelManager.GetInstance().Update();
-        InputManager.GetInstance().Update();
+        //LevelManager.GetInstance().Update(); // todo
+        InputManager.GetInstance().Update(); // todo
     }
-    /*
-    public static Loader GetInstance()
+    
+    /*public static Loader GetInstance()
     {
         if (m_instance_ == null)
         {
