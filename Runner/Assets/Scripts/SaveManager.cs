@@ -77,7 +77,6 @@ public class SaveManager
             return GetSavedData().m_levels_datas.First(d => d.m_level_name == _sLevelName).m_saved_time;
         return float.MaxValue;
     }
-
 }
 
 public class SaveData

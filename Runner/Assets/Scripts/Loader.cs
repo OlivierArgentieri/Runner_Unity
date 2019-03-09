@@ -20,7 +20,7 @@ public class Loader : MonoBehaviour
         }
 
         m_instance_ = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         
         
         Instantiate(m_pause_canvas);
@@ -34,7 +34,7 @@ public class Loader : MonoBehaviour
         LevelManager.GetInstance().Update();
         InputManager.GetInstance().Update();
     }
-
+    /*
     public static Loader GetInstance()
     {
         if (m_instance_ == null)
@@ -43,5 +43,5 @@ public class Loader : MonoBehaviour
             go.AddComponent<Loader>();
         }
         return m_instance_;
-    }
+    }*/
 }

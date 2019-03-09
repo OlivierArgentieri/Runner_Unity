@@ -11,9 +11,4 @@ public class InstantiatePrefab : MonoBehaviour
     {
         Instantiate(m_prefabs, m_spawn_prefabs, Quaternion.identity);
     }
-
-    public void Switch(string s)
-    {
-        LevelManager.GetInstance().SwitchScene(s);
-    }
 }
