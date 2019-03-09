@@ -11,39 +11,18 @@ public class Loader : MonoBehaviour
 
     void Awake()
     {
-        if (m_instance_ == null)
-            m_instance_ = this;
-        if (m_instance_ != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        m_instance_ = this;
-        //DontDestroyOnLoad(gameObject);
-        
         Instantiate(m_pause_canvas);
         Instantiate(m_main_canvas);
 
         SoundManager.GetInstance().RegisterMainTheme(m_main_theme);
         GameManager.GetInstance(); // todo
         SaveManager.GetInstance(); // todo
-        LevelManager.GetInstance();
+        //LevelManager.GetInstance();
     }
 
     private void Update()
     {
-        //LevelManager.GetInstance().Update(); // todo
         InputManager.GetInstance().Update(); // todo
     }
     
-    /*public static Loader GetInstance()
-    {
-        if (m_instance_ == null)
-        {
-            GameObject go = new GameObject("Loader");
-            go.AddComponent<Loader>();
-        }
-        return m_instance_;
-    }*/
 }
