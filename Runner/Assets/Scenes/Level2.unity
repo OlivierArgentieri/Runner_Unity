@@ -9245,19 +9245,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1275131830620868, guid: 6a43145d857038549879141c510636fc,
     type: 2}
   m_PrefabInternal: {fileID: 1560825336}
---- !u!136 &1977587686
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1977587685}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 41.567688
-  m_Height: 210.79875
-  m_Direction: 2
-  m_Center: {x: 0, y: -17.799994, z: 87.339195}
 --- !u!65 &1977587687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9325,6 +9312,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6712e3029cd4843878d5553b583497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1977587693
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977587685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 41.567688
+  m_Height: 311.57538
+  m_Direction: 2
+  m_Center: {x: 0, y: -17.799995, z: 137.72751}
 --- !u!1001 &1999168825
 Prefab:
   m_ObjectHideFlags: 0
