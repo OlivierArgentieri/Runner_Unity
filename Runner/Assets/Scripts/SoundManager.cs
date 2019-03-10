@@ -56,6 +56,21 @@ public class SoundManager : MonoBehaviour
             m_main_theme_.clip = _acAudioMainTheme;
             PlayMainTheme();
         }
+    }
 
+    public void ChangeVolume(float _fVolume)
+    {
+        if (m_main_theme_ != null)
+            m_main_theme_.volume = _fVolume;
+    }
+
+    public float GetCurrentVolume()
+    {
+        if (m_main_theme_ != null)
+        {
+            return m_main_theme_.volume;
+        }
+
+        return 0;
     }
 }
