@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
 
     private void OnKeyboardActivateButtonPressedEventHandler()
     {
-        RaycastHit hit;
         Ray Ray = new Ray(transform.position, Vector3.forward);
         var button = Physics.SphereCastAll(Ray, 0.3f).FirstOrDefault( o=> o.collider.tag == "Button");
 

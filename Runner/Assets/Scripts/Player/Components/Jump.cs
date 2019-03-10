@@ -26,7 +26,6 @@ public class Jump : MonoBehaviour
 
     public void MakeJump()
     {
-        Debug.Log(m_rigidbody_, gameObject);
         if (m_rigidbody_ != null && m_only_on_gameobject && !m_is_jumping_)
             m_rigidbody_.AddForce(Vector3.up * m_jump_power);
 
