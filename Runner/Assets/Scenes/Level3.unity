@@ -7681,7 +7681,7 @@ MonoBehaviour:
     type: 2}
   m_main_canvas: {fileID: 1747041543211448, guid: 311af17050716eb4abefa65dc9aba3d3,
     type: 2}
-  m_main_theme: {fileID: 0}
+  m_main_theme: {fileID: 8300000, guid: 9cd353de93ef18640b0d386405eaf114, type: 3}
 --- !u!4 &499237470
 Transform:
   m_ObjectHideFlags: 0
