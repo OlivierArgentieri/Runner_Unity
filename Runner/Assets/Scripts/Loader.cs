@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Loader : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class Loader : MonoBehaviour
         SoundManager.GetInstance().RegisterMainTheme(m_main_theme);
         GameManager.GetInstance(); // todo
         SaveManager.GetInstance(); // todo
-        //LevelManager.GetInstance();
     }
 
     private void Update()

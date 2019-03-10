@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         RaycastHit hit;
         Ray Ray = new Ray(transform.position, Vector3.forward);
-        var button = Physics.SphereCastAll(Ray, 0.3f).FirstOrDefault( o=> o.collider.tag == "Button");
+        var button = Physics.SphereCastAll(Ray, 0.1f).FirstOrDefault( o=> o.collider.tag == "Button");
 
         if (!button.Equals(default(RaycastHit)))
         {

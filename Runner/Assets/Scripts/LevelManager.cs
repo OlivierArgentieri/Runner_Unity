@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
         m_paused_ = false;
         SoundManager.GetInstance().PlayMainTheme();
+
     }
 
     public void Loadscene(string _sSceneName)
@@ -93,9 +94,15 @@ public class LevelManager : MonoBehaviour
         m_timer_.ResetTimer(Time.time);
     }
 
-    public string GetCurrentNameSecene()
+    public string GetCurrentNameScene()
     {
         return SceneManager.GetActiveScene().name;
+    }
+
+    public void SetActiveDisplayPressE(bool _bDisplay)
+    {
+        if (m_can_press_e_label_instance_ != null)
+            m_can_press_e_label_instance_.enabled = _bDisplay;
     }
 
     private void DisplayTime(float _fTime)
