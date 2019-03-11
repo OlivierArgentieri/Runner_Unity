@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class InputManager
 {
-    private static InputManager m_instance;
+    private static InputManager m_instance_;
     public static InputManager GetInstance()
     {
-        if (m_instance == null)
-            m_instance = new InputManager();
-        return m_instance;
+        if (m_instance_ == null)
+            m_instance_ = new InputManager();
+        return m_instance_;
     }
     
     public delegate void MouseEventHandler(float _fxValue, float _fyValue, float _fWheelValue);
