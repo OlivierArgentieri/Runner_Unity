@@ -5,20 +5,35 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-public class SaveManager
+public class SaveManager : MonoBehaviour
 {
-    private static SaveManager m_instance;
+    private static SaveManager m_instance_;
+
     public static SaveManager GetInstance()
     {
-        if (m_instance == null)
-            m_instance = new SaveManager();
-        return m_instance;
+        if (m_instance_ == null)
+        {
+            GameObject go = new GameObject("SaveManager");
+            go.AddComponent<SaveManager>();
+        }
+        return m_instance_;
     }
+
+
     private string m_path_;
     private const string m_file_name_ = "save.json";
 
-    private SaveManager()
+    private void Awake()
     {
+        if (m_instance_ == null)
+            m_instance_ = this;
+        if (m_instance_ != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        m_instance_ = this;
         m_path_ = string.Format("{0}/{1}", Application.streamingAssetsPath, m_file_name_);
     }
 

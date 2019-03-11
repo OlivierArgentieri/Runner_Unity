@@ -6,6 +6,18 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager m_instance_;
     private AudioSource m_main_theme_;
+
+    public static SoundManager GetInstance()
+    {
+        if (m_instance_ == null)
+        {
+            GameObject go = new GameObject("SoundManager");
+            go.AddComponent<SoundManager>();
+        }
+
+        return m_instance_;
+    }
+
     void Awake()
     {
         if (m_instance_ == null)
@@ -18,17 +30,6 @@ public class SoundManager : MonoBehaviour
 
         m_instance_ = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    public static SoundManager GetInstance()
-    {
-        if (m_instance_ == null)
-        {
-            GameObject go = new GameObject("SoundManager");
-            go.AddComponent<SoundManager>();
-        }
-
-        return m_instance_;
     }
 
     public void PlayMainTheme()
