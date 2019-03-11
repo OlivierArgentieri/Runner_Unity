@@ -16,7 +16,6 @@ public class Loader : MonoBehaviour
         Instantiate(m_main_canvas);
 
         SoundManager.GetInstance().RegisterMainTheme(m_main_theme);
-        SaveManager.GetInstance(); // todo
     }
 
     private void Update()
