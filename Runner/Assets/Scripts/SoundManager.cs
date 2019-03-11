@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
         {
             m_main_theme_.Play();
             m_main_theme_.loop = true;
+            m_main_theme_.volume = 0.5f;
         }
     }
 
